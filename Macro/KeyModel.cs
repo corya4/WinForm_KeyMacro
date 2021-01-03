@@ -25,19 +25,15 @@ namespace MACP.Macro
             macros = new List<CMacro>();
         }
 
+        public void Input(CMacro m)
+        {
+            macros.Add(m);
+        }
+
         public void OnMacro(Keys Onkey, int modified)
         {
 
-            switch (Onkey)
-            {
-                case Keys.A:
-                    Console.WriteLine("A");
-                    break;
-                case Keys.B:
-                    Console.WriteLine("B");
-                    break;
-            }
-            /*foreach(CMacro c in macros)
+            foreach(CMacro c in macros)
             {
                 if(c.regist == Onkey)
                 {
@@ -45,7 +41,7 @@ namespace MACP.Macro
                     break;
                 }
 
-            }*/
+            }
             
 
         }

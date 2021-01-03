@@ -37,9 +37,10 @@ namespace MACP
 
         private void OnLoad(object sender, EventArgs e)
         {
+            k_model = new KeyModel();
             WinLib.RegisterHotKey((int)this.Handle, 0, 0x0, (int)Keys.F5);
             EntryMacro();
-            k_model = new KeyModel();
+            SetViewer();
         }
 
         private void OnClose(object sender, FormClosedEventArgs e)
@@ -48,6 +49,11 @@ namespace MACP
         }
 
         #endregion
+
+        protected void SetViewer()
+        {
+            foreach(CMacro cm in k_model.macros) MacroViewer.Rows.Add(cm.m_title);
+        }
 
         protected void EntryMacro()
         {
@@ -58,22 +64,26 @@ namespace MACP
 
             for(int i = 0; i < readLine.Length; i++)
             {
-                if (readLine[i].Equals("")) continue;
-                
+                if (readLine[i].Equals(""))
+                {
+                    continue;
+                }
                 switch(i % 5)
                 {
                     
                     case 0:
-                        macro = new CMacro();
+                        macro = new CMacro(readLine[i]);
                         break;
                     case 1:
-                        macro.
+                        macro.type = Convert.ToInt32(readLine[i]);
                         break;
                     case 2:
+                        macro.regist = (Keys)Convert.ToInt32(readLine[i]);
                         break;
                     case 3:
-                        break;
-                    case 4:
+                        String[] strKey = readLine[i].Split(',');
+                        foreach (String key in strKey) macro.keys.Add((Keys)Convert.ToInt32(key));
+                        k_model.Input(macro);
                         break;
                 }
             }
