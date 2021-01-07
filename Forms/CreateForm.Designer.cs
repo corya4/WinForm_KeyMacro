@@ -28,17 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BOK = new System.Windows.Forms.Button();
             this.BCANCEL = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.InputKey = new System.Windows.Forms.DataGridView();
             this.btn1 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.view_index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.view_Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.InputKey)).BeginInit();
             this.SuspendLayout();
             // 
             // BOK
@@ -61,28 +67,39 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(69, 23);
+            this.textBox1.Location = new System.Drawing.Point(105, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 21);
+            this.textBox1.Size = new System.Drawing.Size(122, 21);
             this.textBox1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Location = new System.Drawing.Point(13, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 3;
-            this.label1.Text = "타이틀 : ";
+            this.label1.Text = "타이틀        :";
             // 
-            // dataGridView1
+            // InputKey
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(215, 100);
-            this.dataGridView1.TabIndex = 4;
+            this.InputKey.AllowUserToAddRows = false;
+            this.InputKey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InputKey.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.view_index,
+            this.view_key,
+            this.view_shift,
+            this.view_Ctrl});
+            this.InputKey.Location = new System.Drawing.Point(12, 122);
+            this.InputKey.MultiSelect = false;
+            this.InputKey.Name = "InputKey";
+            this.InputKey.ReadOnly = true;
+            this.InputKey.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.InputKey.RowHeadersVisible = false;
+            this.InputKey.RowTemplate.Height = 23;
+            this.InputKey.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.InputKey.Size = new System.Drawing.Size(215, 100);
+            this.InputKey.TabIndex = 4;
             // 
             // btn1
             // 
@@ -101,6 +118,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "등록";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.OnClick);
             // 
             // textBox2
             // 
@@ -123,9 +141,47 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 9;
-            this.label3.Text = "메크로 키 :";
+            this.label3.Text = "메크로 키    :";
+            // 
+            // view_index
+            // 
+            this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_index.DefaultCellStyle = dataGridViewCellStyle3;
+            this.view_index.FillWeight = 72.27548F;
+            this.view_index.HeaderText = "순서";
+            this.view_index.Name = "view_index";
+            this.view_index.ReadOnly = true;
+            this.view_index.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // view_key
+            // 
+            this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_key.DefaultCellStyle = dataGridViewCellStyle4;
+            this.view_key.FillWeight = 178.9639F;
+            this.view_key.HeaderText = "입력키";
+            this.view_key.Name = "view_key";
+            this.view_key.ReadOnly = true;
+            this.view_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // view_shift
+            // 
+            this.view_shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.view_shift.FillWeight = 77.69465F;
+            this.view_shift.HeaderText = "Shift";
+            this.view_shift.Name = "view_shift";
+            this.view_shift.ReadOnly = true;
+            // 
+            // view_Ctrl
+            // 
+            this.view_Ctrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.view_Ctrl.FillWeight = 71.06599F;
+            this.view_Ctrl.HeaderText = "Ctrl";
+            this.view_Ctrl.Name = "view_Ctrl";
+            this.view_Ctrl.ReadOnly = true;
             // 
             // MaCrt
             // 
@@ -138,14 +194,14 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.InputKey);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BCANCEL);
             this.Controls.Add(this.BOK);
             this.Name = "MaCrt";
             this.ShowIcon = false;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InputKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,11 +213,15 @@
         private System.Windows.Forms.Button BCANCEL;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView InputKey;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn view_index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn view_key;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn view_shift;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn view_Ctrl;
     }
 }

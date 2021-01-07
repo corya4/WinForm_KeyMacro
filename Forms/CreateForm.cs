@@ -16,5 +16,11 @@ namespace MACP.Forms
         {
             InitializeComponent();
         }
+
+        private void OnClick(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
