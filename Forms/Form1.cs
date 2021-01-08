@@ -1,4 +1,5 @@
-﻿using MACP.Macro;
+﻿using MACP.Forms;
+using MACP.Macro;
 using MACP.Util;
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,10 @@ namespace MACP
             return true;
         }
 
-
+        private void AddMacro(object sender, EventArgs e)
+        {
+            MaCrt cf = new MaCrt();
+            cf.ShowDialog();
+        }
     }
 }

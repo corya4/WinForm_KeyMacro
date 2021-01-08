@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MACP.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-        public Keyboard()
+        AddKey ak;
+        public Keyboard(object obj)
         {
             InitializeComponent();
+            ak = obj as AddKey;
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -35,7 +38,6 @@ namespace MACP.Forms
 
             rows.Add("↑"); rows.Add("↓"); rows.Add("←"); rows.Add("→");
 
-            
         }
     }
 }

@@ -35,7 +35,6 @@
             this.추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.변경MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.삭제DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).BeginInit();
             this.menubar.SuspendLayout();
             this.SuspendLayout();
@@ -73,8 +72,7 @@
             // menubar
             // 
             this.menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.추가변경ToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.추가변경ToolStripMenuItem});
             this.menubar.Location = new System.Drawing.Point(0, 0);
             this.menubar.Name = "menubar";
             this.menubar.Size = new System.Drawing.Size(202, 24);
@@ -96,6 +94,7 @@
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
             this.추가AToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
+            this.추가AToolStripMenuItem.Click += new System.EventHandler(this.AddMacro);
             // 
             // 변경MToolStripMenuItem
             // 
@@ -108,12 +107,6 @@
             this.삭제DToolStripMenuItem.Name = "삭제DToolStripMenuItem";
             this.삭제DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.삭제DToolStripMenuItem.Text = "삭제(&D)";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 20);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
             // 
             // Form1
             // 
@@ -149,7 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem 추가AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 변경MToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 삭제DToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

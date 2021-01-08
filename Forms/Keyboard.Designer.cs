@@ -31,15 +31,24 @@
             this.keyData = new System.Windows.Forms.DataGridView();
             this.OK = new System.Windows.Forms.Button();
             this.CANCEL = new System.Windows.Forms.Button();
+            this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).BeginInit();
             this.SuspendLayout();
             // 
             // keyData
             // 
+            this.keyData.AllowUserToAddRows = false;
             this.keyData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.keyData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.key,
+            this.Shift,
+            this.Ctrl});
             this.keyData.Dock = System.Windows.Forms.DockStyle.Top;
             this.keyData.Location = new System.Drawing.Point(0, 0);
             this.keyData.Name = "keyData";
+            this.keyData.RowHeadersVisible = false;
             this.keyData.RowTemplate.Height = 23;
             this.keyData.Size = new System.Drawing.Size(186, 254);
             this.keyData.TabIndex = 0;
@@ -61,6 +70,31 @@
             this.CANCEL.TabIndex = 2;
             this.CANCEL.Text = "취소";
             this.CANCEL.UseVisualStyleBackColor = true;
+            // 
+            // key
+            // 
+            this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.key.FillWeight = 123.3503F;
+            this.key.HeaderText = "Key";
+            this.key.Name = "key";
+            this.key.ReadOnly = true;
+            this.key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Shift
+            // 
+            this.Shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Shift.FillWeight = 88.32487F;
+            this.Shift.HeaderText = "Shift";
+            this.Shift.Name = "Shift";
+            this.Shift.ReadOnly = true;
+            // 
+            // Ctrl
+            // 
+            this.Ctrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ctrl.FillWeight = 88.32487F;
+            this.Ctrl.HeaderText = "Ctrl";
+            this.Ctrl.Name = "Ctrl";
+            this.Ctrl.ReadOnly = true;
             // 
             // Keyboard
             // 
@@ -90,5 +124,8 @@
         private System.Windows.Forms.DataGridView keyData;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Button CANCEL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn key;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Shift;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ctrl;
     }
 }
