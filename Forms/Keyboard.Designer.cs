@@ -50,6 +50,7 @@
             this.keyData.Name = "keyData";
             this.keyData.RowHeadersVisible = false;
             this.keyData.RowTemplate.Height = 23;
+            this.keyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.keyData.Size = new System.Drawing.Size(186, 254);
             this.keyData.TabIndex = 0;
             // 
@@ -70,6 +71,7 @@
             this.CANCEL.TabIndex = 2;
             this.CANCEL.Text = "취소";
             this.CANCEL.UseVisualStyleBackColor = true;
+            this.CANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
             // key
             // 
@@ -86,7 +88,6 @@
             this.Shift.FillWeight = 88.32487F;
             this.Shift.HeaderText = "Shift";
             this.Shift.Name = "Shift";
-            this.Shift.ReadOnly = true;
             // 
             // Ctrl
             // 
@@ -94,7 +95,6 @@
             this.Ctrl.FillWeight = 88.32487F;
             this.Ctrl.HeaderText = "Ctrl";
             this.Ctrl.Name = "Ctrl";
-            this.Ctrl.ReadOnly = true;
             // 
             // Keyboard
             // 

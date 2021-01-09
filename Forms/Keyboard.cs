@@ -39,5 +39,10 @@ namespace MACP.Forms
             rows.Add("↑"); rows.Add("↓"); rows.Add("←"); rows.Add("→");
 
         }
+
+        private void OnCancel(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
