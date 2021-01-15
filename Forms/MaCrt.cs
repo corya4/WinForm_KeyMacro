@@ -21,9 +21,16 @@ namespace MACP.Forms
 
         private void OnClick(object sender, EventArgs e)
         {
-            AddKey ak = new AddKey();
-            Keyboard kb = new Keyboard(ak);
+            List<AddKey> lList = new List<AddKey>();
+            Keyboard kb = new Keyboard(lList);
             kb.ShowDialog();
+
+            int index = 0;
+            foreach(AddKey key in lList)
+            {
+                InputKey.Rows.Add(index++, key.key.ToString(),
+                           key.isShift == 1 ? true : false, key.isCtrl == 1 ? true : false);
+            }
         }
 
         private void OnCancel(object sender, EventArgs e)

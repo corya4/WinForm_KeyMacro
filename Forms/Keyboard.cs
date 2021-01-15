@@ -13,11 +13,13 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-        AddKey ak;
-        public Keyboard(object obj)
+
+        List<AddKey> lKey;
+
+        public Keyboard(object list)
         {
             InitializeComponent();
-            ak = obj as AddKey;
+            lKey = list as List<AddKey>;
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -43,6 +45,23 @@ namespace MACP.Forms
         private void OnCancel(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void OnClick(object sender, EventArgs e)
+        {
+
+            if (keyData.SelectedRows == null) return;
+
+            foreach(DataGridViewRow selKey in keyData.SelectedRows)
+            {
+                AddKey key = new AddKey();
+                key.key = (Keys)Convert.ToChar(selKey.Cells[0].ToString());
+                key.isShift = Convert.ToBoolean(selKey.Cells[1].Value) == true ? 1 : 0;
+                key.isCtrl = Convert.ToBoolean(selKey.Cells[2].Value) == true ? 1 : 0;
+
+                lKey.Add(key);
+            }
+
         }
     }
 }

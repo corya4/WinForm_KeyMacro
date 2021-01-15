@@ -9,8 +9,11 @@ namespace MACP.Model
 {
     class AddKey
     {
+        public
         Keys key { get; set; }
+        public
         int isShift { get; set; }
+        public
         int isCtrl { get; set; }
     }
 }

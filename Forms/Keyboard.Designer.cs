@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.keyData = new System.Windows.Forms.DataGridView();
-            this.OK = new System.Windows.Forms.Button();
-            this.CANCEL = new System.Windows.Forms.Button();
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.OK = new System.Windows.Forms.Button();
+            this.CANCEL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,25 +53,6 @@
             this.keyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.keyData.Size = new System.Drawing.Size(186, 254);
             this.keyData.TabIndex = 0;
-            // 
-            // OK
-            // 
-            this.OK.Location = new System.Drawing.Point(11, 263);
-            this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(74, 21);
-            this.OK.TabIndex = 1;
-            this.OK.Text = "선택";
-            this.OK.UseVisualStyleBackColor = true;
-            // 
-            // CANCEL
-            // 
-            this.CANCEL.Location = new System.Drawing.Point(100, 263);
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.Size = new System.Drawing.Size(74, 21);
-            this.CANCEL.TabIndex = 2;
-            this.CANCEL.Text = "취소";
-            this.CANCEL.UseVisualStyleBackColor = true;
-            this.CANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
             // key
             // 
@@ -95,6 +76,26 @@
             this.Ctrl.FillWeight = 88.32487F;
             this.Ctrl.HeaderText = "Ctrl";
             this.Ctrl.Name = "Ctrl";
+            // 
+            // OK
+            // 
+            this.OK.Location = new System.Drawing.Point(11, 263);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(74, 21);
+            this.OK.TabIndex = 1;
+            this.OK.Text = "선택";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OnClick);
+            // 
+            // CANCEL
+            // 
+            this.CANCEL.Location = new System.Drawing.Point(100, 263);
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.Size = new System.Drawing.Size(74, 21);
+            this.CANCEL.TabIndex = 2;
+            this.CANCEL.Text = "취소";
+            this.CANCEL.UseVisualStyleBackColor = true;
+            this.CANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
             // Keyboard
             // 
