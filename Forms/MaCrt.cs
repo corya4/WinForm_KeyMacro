@@ -25,12 +25,13 @@ namespace MACP.Forms
             Keyboard kb = new Keyboard(lList);
             kb.ShowDialog();
 
-            int index = 0;
+            int index = InputKey.Rows.Count + 1;
             foreach(AddKey key in lList)
             {
                 InputKey.Rows.Add(index++, key.key.ToString(),
                            key.isShift == 1 ? true : false, key.isCtrl == 1 ? true : false);
             }
+        
         }
 
         private void OnCancel(object sender, EventArgs e)
