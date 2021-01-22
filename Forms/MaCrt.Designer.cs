@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BOK = new System.Windows.Forms.Button();
             this.BCANCEL = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -105,8 +105,8 @@
             // view_index
             // 
             this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_index.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_index.DefaultCellStyle = dataGridViewCellStyle3;
             this.view_index.FillWeight = 72.27548F;
             this.view_index.HeaderText = "순서";
             this.view_index.Name = "view_index";
@@ -116,8 +116,8 @@
             // view_key
             // 
             this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_key.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_key.DefaultCellStyle = dataGridViewCellStyle4;
             this.view_key.FillWeight = 178.9639F;
             this.view_key.HeaderText = "입력키";
             this.view_key.Name = "view_key";
@@ -148,6 +148,7 @@
             this.btn1.TabIndex = 5;
             this.btn1.Text = "등록";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.OnClick1);
             // 
             // button1
             // 
@@ -157,12 +158,13 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "등록";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.OnClick);
+            this.button1.Click += new System.EventHandler(this.OnClick2);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(128, 62);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(49, 21);
             this.textBox2.TabIndex = 7;
             // 

@@ -53,12 +53,12 @@
             this.keyData.RowHeadersVisible = false;
             this.keyData.RowTemplate.Height = 23;
             this.keyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.keyData.Size = new System.Drawing.Size(186, 254);
+            this.keyData.Size = new System.Drawing.Size(255, 243);
             this.keyData.TabIndex = 0;
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(11, 263);
+            this.OK.Location = new System.Drawing.Point(32, 251);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(74, 21);
             this.OK.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             // CANCEL
             // 
-            this.CANCEL.Location = new System.Drawing.Point(100, 263);
+            this.CANCEL.Location = new System.Drawing.Point(148, 251);
             this.CANCEL.Name = "CANCEL";
             this.CANCEL.Size = new System.Drawing.Size(74, 21);
             this.CANCEL.TabIndex = 2;
@@ -79,7 +79,7 @@
             // key
             // 
             this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.key.FillWeight = 123.3503F;
+            this.key.FillWeight = 176.6498F;
             this.key.HeaderText = "Key";
             this.key.Name = "key";
             this.key.ReadOnly = true;
@@ -88,14 +88,14 @@
             // Shift
             // 
             this.Shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Shift.FillWeight = 88.32487F;
+            this.Shift.FillWeight = 61.67514F;
             this.Shift.HeaderText = "Shift";
             this.Shift.Name = "Shift";
             // 
             // Ctrl
             // 
             this.Ctrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ctrl.FillWeight = 88.32487F;
+            this.Ctrl.FillWeight = 61.67514F;
             this.Ctrl.HeaderText = "Ctrl";
             this.Ctrl.Name = "Ctrl";
             // 
@@ -111,16 +111,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 293);
+            this.ClientSize = new System.Drawing.Size(255, 280);
             this.ControlBox = false;
             this.Controls.Add(this.CANCEL);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.keyData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(186, 293);
+            this.MaximumSize = new System.Drawing.Size(255, 280);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(186, 293);
+            this.MinimumSize = new System.Drawing.Size(255, 280);
             this.Name = "Keyboard";
             this.ShowIcon = false;
             this.Text = "Keyboard";

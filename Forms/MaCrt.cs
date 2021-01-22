@@ -19,10 +19,23 @@ namespace MACP.Forms
             InitializeComponent();
         }
 
-        private void OnClick(object sender, EventArgs e)
+        private void OnClick1(object sender, EventArgs e)
         {
             List<AddKey> lList = new List<AddKey>();
-            Keyboard kb = new Keyboard(lList);
+            Keyboard kb = new Keyboard(lList, this.Location, false);
+            kb.ShowDialog();
+
+            if (lList.Count == 0) return;
+
+            AddKey key = lList[0];
+            textBox2.Text = String.Format(key.key.ToString());
+
+        }
+
+        private void OnClick2(object sender, EventArgs e)
+        {
+            List<AddKey> lList = new List<AddKey>();
+            Keyboard kb = new Keyboard(lList, this.Location, true);
             kb.ShowDialog();
 
             int index = InputKey.Rows.Count + 1;
@@ -38,5 +51,6 @@ namespace MACP.Forms
         {
             this.Close();
         }
+
     }
 }

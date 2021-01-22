@@ -15,11 +15,15 @@ namespace MACP.Forms
     {
 
         List<AddKey> lKey;
+        bool mulSel;
 
-        public Keyboard(object list)
+        public Keyboard(object list, Point location, bool mulSel)
         {
             InitializeComponent();
             lKey = list as List<AddKey>;
+            this.mulSel = mulSel;
+
+            this.Location = location;
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -34,11 +38,11 @@ namespace MACP.Forms
             rows.Add("V", false, false, Keys.V); rows.Add("W", false, false, Keys.W); rows.Add("X", false, false, Keys.X); rows.Add("Y", false, false, Keys.Y); rows.Add("Z", false, false, Keys.Z);
 
             
-            rows.Add("["); rows.Add("]"); rows.Add(";"); rows.Add("'"); rows.Add(","); rows.Add("."); rows.Add("/"); rows.Add("Tab"); rows.Add("Caps");
-            rows.Add("Ins"); rows.Add("Home"); rows.Add("Del"); rows.Add("End"); rows.Add("Pause"); rows.Add("PgUp"); rows.Add("PgDn"); rows.Add("\\");
-            rows.Add("-"); rows.Add("=");
+            rows.Add("[",false,false,Keys.OemOpenBrackets); rows.Add("]",false,false,Keys.OemCloseBrackets); rows.Add(";",false,false,Keys.OemSemicolon); rows.Add("'",false,false,Keys.OemQuotes); rows.Add(",",false,false,Keys.Oemcomma); rows.Add(".",false,false,Keys.OemPeriod); rows.Add("/",false,false,Keys.Divide); rows.Add("Tab",false,false,Keys.Tab); rows.Add("Caps",false,false,Keys.CapsLock);
+            rows.Add("Ins"); rows.Add("Home"); rows.Add("Del"); rows.Add("End"); rows.Add("Pause"); rows.Add("PgUp"); rows.Add("PgDn"); rows.Add("\\",false,false,Keys.OemBackslash);
+            rows.Add("-",false,false,Keys.OemMinus); rows.Add("=",false,false,Keys.Oemplus);
 
-            rows.Add("↑"); rows.Add("↓"); rows.Add("←"); rows.Add("→");
+            rows.Add("↑",false,false,Keys.Up); rows.Add("↓",false,false,Keys.Down); rows.Add("←",false,false,Keys.Left); rows.Add("→",false,false,Keys.Right);
 
         }
 
