@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BOK = new System.Windows.Forms.Button();
             this.BCANCEL = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.BOK.TabIndex = 0;
             this.BOK.Text = "확인";
             this.BOK.UseVisualStyleBackColor = true;
+            this.BOK.Click += new System.EventHandler(this.OnOK);
             // 
             // BCANCEL
             // 
@@ -105,8 +106,8 @@
             // view_index
             // 
             this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_index.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_index.DefaultCellStyle = dataGridViewCellStyle1;
             this.view_index.FillWeight = 72.27548F;
             this.view_index.HeaderText = "순서";
             this.view_index.Name = "view_index";
@@ -116,8 +117,8 @@
             // view_key
             // 
             this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_key.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_key.DefaultCellStyle = dataGridViewCellStyle2;
             this.view_key.FillWeight = 178.9639F;
             this.view_key.HeaderText = "입력키";
             this.view_key.Name = "view_key";

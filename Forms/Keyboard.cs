@@ -13,7 +13,6 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-
         List<AddKey> lKey;
         bool mulSel;
 

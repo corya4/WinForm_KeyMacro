@@ -122,8 +122,12 @@ namespace MACP
 
         private void AddMacro(object sender, EventArgs e)
         {
-            MaCrt cf = new MaCrt();
+            KeyModel km = new KeyModel();
+            MaCrt cf = new MaCrt(km);
             cf.ShowDialog();
+
+            
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MACP.Model;
+﻿using MACP.Macro;
+using MACP.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,11 @@ namespace MACP.Forms
 
     public partial class MaCrt : Form
     {
-        public MaCrt()
+        KeyModel km;
+        public MaCrt(object km)
         {
             InitializeComponent();
+            this.km = km as KeyModel;
         }
 
         private void OnClick1(object sender, EventArgs e)
@@ -49,8 +52,13 @@ namespace MACP.Forms
 
         private void OnCancel(object sender, EventArgs e)
         {
+            km = null;
             this.Close();
         }
 
+        private void OnOK(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
