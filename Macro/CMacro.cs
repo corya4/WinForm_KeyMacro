@@ -14,11 +14,15 @@ namespace MACP.Macro
         public int type;
         public Keys regist;
         public List<Keys> keys;
+        public List<int> shifts;
+        public List<int> ctrls;
 
         public CMacro(String title)
         {
             m_title = title;
             keys = new List<Keys>();
+            shifts = new List<int>();
+            ctrls = new List<int>();
         }
 
         public void OnKey()

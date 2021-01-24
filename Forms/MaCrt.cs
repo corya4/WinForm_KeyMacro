@@ -16,6 +16,8 @@ namespace MACP.Forms
     public partial class MaCrt : Form
     {
         KeyModel km;
+        List<AddKey> lList;
+
         public MaCrt(object km)
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace MACP.Forms
 
         private void OnClick2(object sender, EventArgs e)
         {
-            List<AddKey> lList = new List<AddKey>();
+            lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, true);
             kb.ShowDialog();
 
@@ -58,7 +60,16 @@ namespace MACP.Forms
 
         private void OnOK(object sender, EventArgs e)
         {
-            
+            if(lList == null) return; // 메시지
+            CMacro cm = new CMacro("");
+
+            foreach (AddKey key in lList)
+            {
+                cm.keys.Add(key.key);
+                cm.shifts.Add(key.isShift);
+                cm.ctrls.Add(key.isCtrl);
+            }
+
         }
     }
 }
