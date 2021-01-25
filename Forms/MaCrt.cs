@@ -15,13 +15,13 @@ namespace MACP.Forms
 
     public partial class MaCrt : Form
     {
-        KeyModel km;
+        CMacro cm;
         List<AddKey> lList;
 
-        public MaCrt(object km)
+        public MaCrt(object cm)
         {
             InitializeComponent();
-            this.km = km as KeyModel;
+            this.cm = cm as CMacro;
         }
 
         private void OnClick1(object sender, EventArgs e)
@@ -54,7 +54,8 @@ namespace MACP.Forms
 
         private void OnCancel(object sender, EventArgs e)
         {
-            km = null;
+            cm = null;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -70,6 +71,9 @@ namespace MACP.Forms
                 cm.ctrls.Add(key.isCtrl);
             }
 
+            cm.m_title = ID_title.Text;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

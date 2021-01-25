@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BOK = new System.Windows.Forms.Button();
             this.BCANCEL = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ID_title = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.InputKey = new System.Windows.Forms.DataGridView();
             this.view_index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,12 +67,12 @@
             this.BCANCEL.UseVisualStyleBackColor = true;
             this.BCANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
-            // textBox1
+            // ID_title
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 21);
-            this.textBox1.TabIndex = 2;
+            this.ID_title.Location = new System.Drawing.Point(105, 23);
+            this.ID_title.Name = "ID_title";
+            this.ID_title.Size = new System.Drawing.Size(122, 21);
+            this.ID_title.TabIndex = 2;
             // 
             // label1
             // 
@@ -106,8 +106,8 @@
             // view_index
             // 
             this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_index.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_index.DefaultCellStyle = dataGridViewCellStyle3;
             this.view_index.FillWeight = 72.27548F;
             this.view_index.HeaderText = "순서";
             this.view_index.Name = "view_index";
@@ -117,8 +117,8 @@
             // view_key
             // 
             this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_key.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_key.DefaultCellStyle = dataGridViewCellStyle4;
             this.view_key.FillWeight = 178.9639F;
             this.view_key.HeaderText = "입력키";
             this.view_key.Name = "view_key";
@@ -200,7 +200,7 @@
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.InputKey);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ID_title);
             this.Controls.Add(this.BCANCEL);
             this.Controls.Add(this.BOK);
             this.Name = "MaCrt";
@@ -215,7 +215,7 @@
 
         private System.Windows.Forms.Button BOK;
         private System.Windows.Forms.Button BCANCEL;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ID_title;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView InputKey;
         private System.Windows.Forms.Button btn1;

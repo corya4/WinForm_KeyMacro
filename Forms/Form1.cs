@@ -1,6 +1,7 @@
 ﻿using MACP.Forms;
 using MACP.Macro;
 using MACP.Util;
+using MACP.Controll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace MACP
         public Form1()
         {
             InitializeComponent();
+            AMD.viewer = MacroViewer;
         }
 
         private void MacroViewer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -122,9 +124,12 @@ namespace MACP
 
         private void AddMacro(object sender, EventArgs e)
         {
-            KeyModel km = new KeyModel();
-            MaCrt cf = new MaCrt(km);
-            cf.ShowDialog();
+            CMacro cm = new CMacro("");
+            MaCrt cf = new MaCrt(cm);
+
+            if (cf.ShowDialog() != DialogResult.Cancel) return;
+
+            k_model.macros.Add(cm);
 
             
         }
