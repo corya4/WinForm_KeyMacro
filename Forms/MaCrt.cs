@@ -41,7 +41,8 @@ namespace MACP.Forms
         {
             lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, true);
-            kb.ShowDialog();
+
+            if (kb.ShowDialog() != DialogResult.OK) return;
 
             int index = InputKey.Rows.Count + 1;
             foreach(AddKey key in lList)
@@ -50,19 +51,25 @@ namespace MACP.Forms
                            key.isShift == 1 ? true : false, key.isCtrl == 1 ? true : false);
             }
         
+
         }
 
         private void OnCancel(object sender, EventArgs e)
         {
             cm = null;
+
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void OnOK(object sender, EventArgs e)
         {
-            if(lList == null) return; // 메시지
-            CMacro cm = new CMacro("");
+            if (lList == null)
+            {
+                MessageBox.Show("Select MacroKey");/* afer modified MessageBoxEX */
+                return;            }
+
+            cm.m_title = ID_title.Text;
 
             foreach (AddKey key in lList)
             {
@@ -71,7 +78,6 @@ namespace MACP.Forms
                 cm.ctrls.Add(key.isCtrl);
             }
 
-            cm.m_title = ID_title.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

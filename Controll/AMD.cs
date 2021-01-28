@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MACP.Macro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace MACP.Controll
 
         static public void AddMacro(object data)
         {
-
-
+            CMacro macro = data as CMacro;
+            viewer.Rows.Add(macro.m_title);
         }
         
 

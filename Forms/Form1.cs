@@ -127,10 +127,10 @@ namespace MACP
             CMacro cm = new CMacro("");
             MaCrt cf = new MaCrt(cm);
 
-            if (cf.ShowDialog() != DialogResult.Cancel) return;
+            if (cf.ShowDialog() != DialogResult.OK) return;
 
             k_model.macros.Add(cm);
-
+            AMD.AddMacro(cm);
             
         }
     }
