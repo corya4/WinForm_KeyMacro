@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MACP.Model;
+using MACP.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +13,8 @@ namespace MACP.Macro
     class CMacro
     {
         public String m_title;
-        public int type;
-        public Keys regist;
+        public AddKey regist;
+        public int modified;
         public List<Keys> keys;
         public List<int> shifts;
         public List<int> ctrls;
@@ -20,6 +22,7 @@ namespace MACP.Macro
         public CMacro(String title)
         {
             m_title = title;
+            regist = new AddKey();
             keys = new List<Keys>();
             shifts = new List<int>();
             ctrls = new List<int>();
@@ -27,8 +30,12 @@ namespace MACP.Macro
 
         public void OnKey()
         {
-            
-
+            for(int i = 0; i < keys.Count; i++)
+            {
+                /*
+                 * keys리스트의 키를 입력함.
+                 */
+            }
 
         }
 

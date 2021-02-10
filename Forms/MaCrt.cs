@@ -16,25 +16,28 @@ namespace MACP.Forms
     public partial class MaCrt : Form
     {
         CMacro cm;
+        AddKey regKey;
         List<AddKey> lList;
 
-        public MaCrt(object cm)
+        public MaCrt(object cm, Form1 form)
         {
             InitializeComponent();
+            this.Location = new Point(form.Location.X + form.Width - 15, form.Location.Y);
             this.cm = cm as CMacro;
         }
 
-        private void OnClick1(object sender, EventArgs e)
+        private void OnClick(object sender, EventArgs e)
         {
-            List<AddKey> lList = new List<AddKey>();
-            Keyboard kb = new Keyboard(lList, this.Location, false);
-            kb.ShowDialog();
+            regKey = new AddKey();
+            Keyboard kb = new Keyboard(regKey, this.Location, false);
 
-            if (lList.Count == 0) return;
-
-            AddKey key = lList[0];
-            textBox2.Text = String.Format(key.key.ToString());
-
+            if (kb.ShowDialog() != DialogResult.OK)
+            {
+                regKey = null;
+                return;
+            }
+            ID_registBox.Text = regKey.key.ToString() + ((regKey.isShift == 1) ? " + Shift" : "") + ((regKey.isCtrl == 1) ? " + Ctrl" : "");
+            
         }
 
         private void OnClick2(object sender, EventArgs e)
@@ -42,8 +45,11 @@ namespace MACP.Forms
             lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, true);
 
-            if (kb.ShowDialog() != DialogResult.OK) return;
-
+            if (kb.ShowDialog() != DialogResult.OK)
+            {
+                lList = null;
+                return;
+            }
             int index = InputKey.Rows.Count + 1;
             foreach(AddKey key in lList)
             {
@@ -57,19 +63,20 @@ namespace MACP.Forms
         private void OnCancel(object sender, EventArgs e)
         {
             cm = null;
-
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void OnOK(object sender, EventArgs e)
         {
-            if (lList == null)
+            if ((lList == null || regKey == null))
             {
                 MessageBox.Show("Select MacroKey");/* afer modified MessageBoxEX */
-                return;            }
+                return;           
+            }
 
             cm.m_title = ID_title.Text;
+            cm.regist = regKey;
 
             foreach (AddKey key in lList)
             {
@@ -81,5 +88,6 @@ namespace MACP.Forms
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
     }
 }

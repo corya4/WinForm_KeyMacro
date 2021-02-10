@@ -92,20 +92,20 @@
             // 추가AToolStripMenuItem
             // 
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
             this.추가AToolStripMenuItem.Click += new System.EventHandler(this.AddMacro);
             // 
             // 변경MToolStripMenuItem
             // 
             this.변경MToolStripMenuItem.Name = "변경MToolStripMenuItem";
-            this.변경MToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.변경MToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.변경MToolStripMenuItem.Text = "변경(&M)";
             // 
             // 삭제DToolStripMenuItem
             // 
             this.삭제DToolStripMenuItem.Name = "삭제DToolStripMenuItem";
-            this.삭제DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.삭제DToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.삭제DToolStripMenuItem.Text = "삭제(&D)";
             // 
             // Form1

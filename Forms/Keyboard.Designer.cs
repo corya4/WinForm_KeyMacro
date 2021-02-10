@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.keyData = new System.Windows.Forms.DataGridView();
-            this.OK = new System.Windows.Forms.Button();
-            this.CANCEL = new System.Windows.Forms.Button();
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.KeyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OK = new System.Windows.Forms.Button();
+            this.CANCEL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,28 +53,8 @@
             this.keyData.RowHeadersVisible = false;
             this.keyData.RowTemplate.Height = 23;
             this.keyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.keyData.Size = new System.Drawing.Size(255, 243);
+            this.keyData.Size = new System.Drawing.Size(239, 244);
             this.keyData.TabIndex = 0;
-            // 
-            // OK
-            // 
-            this.OK.Location = new System.Drawing.Point(32, 251);
-            this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(74, 21);
-            this.OK.TabIndex = 1;
-            this.OK.Text = "선택";
-            this.OK.UseVisualStyleBackColor = true;
-            this.OK.Click += new System.EventHandler(this.OnClick);
-            // 
-            // CANCEL
-            // 
-            this.CANCEL.Location = new System.Drawing.Point(148, 251);
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.Size = new System.Drawing.Size(74, 21);
-            this.CANCEL.TabIndex = 2;
-            this.CANCEL.Text = "취소";
-            this.CANCEL.UseVisualStyleBackColor = true;
-            this.CANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
             // key
             // 
@@ -107,22 +87,41 @@
             this.KeyCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.KeyCode.Visible = false;
             // 
+            // OK
+            // 
+            this.OK.Location = new System.Drawing.Point(24, 251);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(74, 22);
+            this.OK.TabIndex = 1;
+            this.OK.Text = "선택";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OnClick);
+            // 
+            // CANCEL
+            // 
+            this.CANCEL.Location = new System.Drawing.Point(140, 251);
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.Size = new System.Drawing.Size(74, 22);
+            this.CANCEL.TabIndex = 2;
+            this.CANCEL.Text = "취소";
+            this.CANCEL.UseVisualStyleBackColor = true;
+            this.CANCEL.Click += new System.EventHandler(this.OnCancel);
+            // 
             // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 280);
+            this.ClientSize = new System.Drawing.Size(239, 279);
             this.ControlBox = false;
             this.Controls.Add(this.CANCEL);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.keyData);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(255, 280);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(255, 280);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(255, 318);
+            this.MinimumSize = new System.Drawing.Size(255, 318);
             this.Name = "Keyboard";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Keyboard";
             this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).EndInit();

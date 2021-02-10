@@ -35,7 +35,8 @@ namespace MACP.Macro
 
             foreach(CMacro c in macros)
             {
-                if(c.regist == Onkey)
+                
+                if(c.regist.key == Onkey && c.modified == modified)
                 {
                     c.OnKey();
                     break;

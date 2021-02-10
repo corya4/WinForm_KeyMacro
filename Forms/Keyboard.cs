@@ -13,15 +13,22 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
+        AddKey rKey;
         List<AddKey> lKey;
         bool mulSel;
 
-        public Keyboard(object list, Point location, bool mulSel)
+        public Keyboard(object obj, Point location, bool mulSel)
         {
             InitializeComponent();
-            lKey = list as List<AddKey>;
-            this.mulSel = mulSel;
 
+            rKey = obj as AddKey;
+
+            if(rKey == null)
+            {
+                lKey = obj as List<AddKey>;
+            }
+         
+            this.mulSel = mulSel;
             this.Location = location;
         }
 
@@ -50,7 +57,6 @@ namespace MACP.Forms
             rows.Add("F10",false,false,Keys.F10);
             rows.Add("F11",false,false,Keys.F11);
             rows.Add("F12",false,false,Keys.F12);
-
             rows.Add("A",false,false,Keys.A);
             rows.Add("B",false,false,Keys.B);
             rows.Add("C",false,false,Keys.C);
@@ -77,8 +83,6 @@ namespace MACP.Forms
             rows.Add("X", false, false, Keys.X);
             rows.Add("Y", false, false, Keys.Y);
             rows.Add("Z", false, false, Keys.Z);
-
-            
             rows.Add("[",false,false,Keys.OemOpenBrackets);
             rows.Add("]",false,false,Keys.OemCloseBrackets);
             rows.Add(";",false,false,Keys.OemSemicolon);
@@ -98,7 +102,6 @@ namespace MACP.Forms
             rows.Add("\\",false,false,Keys.OemBackslash);
             rows.Add("-",false,false,Keys.OemMinus);
             rows.Add("=",false,false,Keys.Oemplus);
-
             rows.Add("↑",false,false,Keys.Up);
             rows.Add("↓",false,false,Keys.Down); 
             rows.Add("←",false,false,Keys.Left);
@@ -108,25 +111,30 @@ namespace MACP.Forms
 
         private void OnCancel(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void OnClick(object sender, EventArgs e)
         {
-
             if (keyData.SelectedRows == null) return;
+            AddKey key;
 
             foreach(DataGridViewRow selKey in keyData.SelectedRows)
             {
-                AddKey key = new AddKey();
+                key = new AddKey();
+
                 key.key = (Keys)selKey.Cells[3].Value;
                 key.isShift = Convert.ToBoolean(selKey.Cells[1].Value) == true ? 1 : 0;
                 key.isCtrl = Convert.ToBoolean(selKey.Cells[2].Value) == true ? 1 : 0;
 
-                lKey.Add(key);
+                if (keyData.MultiSelect) lKey.Add(key);
+                else rKey = key;
             }
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
     }
 }

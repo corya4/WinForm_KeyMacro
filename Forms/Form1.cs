@@ -15,13 +15,21 @@ using System.Windows.Forms;
 
 namespace MACP
 {
+
+    /*
+     * PreUpadte LoadVIew
+     * - GridView 컴포넌트 수정(버튼 토글 기능 추가)
+     * - 예약 메크로(토글On) 시 RegistryHotKey 등록
+     * - 프로그램 종료 시 Input된 메크로 파일로 저장.
+     */
+
     public partial class Form1 : Form
     {
 
         KeyModel k_model;
 
         bool activited = true;
-        const int HOTKEY = 0x0312;
+        const int HOTKEY = 0x0312; // keyboard Event
 
         #region C# EVENT Method
 
@@ -41,7 +49,9 @@ namespace MACP
         private void OnLoad(object sender, EventArgs e)
         {
             k_model = new KeyModel();
-            WinLib.RegisterHotKey((int)this.Handle, 0, 0x0, (int)Keys.F5);
+
+            //WinLib.RegisterHotKey((int)this.Handle, 0, 0x0, (int)Keys.F5);
+
             EntryMacro();
             SetViewer();
         }
@@ -78,10 +88,10 @@ namespace MACP
                         macro = new CMacro(readLine[i]);
                         break;
                     case 1:
-                        macro.type = Convert.ToInt32(readLine[i]);
+                        macro.modified = Convert.ToInt32(readLine[i]);
                         break;
                     case 2:
-                        macro.regist = (Keys)Convert.ToInt32(readLine[i]);
+                        macro.regist.key = (Keys)Convert.ToInt32(readLine[i]);
                         break;
                     case 3:
                         String[] strKey = readLine[i].Split(',');
@@ -125,7 +135,7 @@ namespace MACP
         private void AddMacro(object sender, EventArgs e)
         {
             CMacro cm = new CMacro("");
-            MaCrt cf = new MaCrt(cm);
+            MaCrt cf = new MaCrt(cm, this);
 
             if (cf.ShowDialog() != DialogResult.OK) return;
 
