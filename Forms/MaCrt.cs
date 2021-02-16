@@ -28,14 +28,16 @@ namespace MACP.Forms
 
         private void OnClick(object sender, EventArgs e)
         {
-            regKey = new AddKey();
-            Keyboard kb = new Keyboard(regKey, this.Location, false);
+            lList = new List<AddKey>();
+            Keyboard kb = new Keyboard(lList, this.Location, false);
 
-            if (kb.ShowDialog() != DialogResult.OK)
+            if ( (kb.ShowDialog() != DialogResult.OK) || (lList.Count == 0))
             {
-                regKey = null;
                 return;
             }
+
+            regKey = lList[0];
+
             ID_registBox.Text = regKey.key.ToString() + ((regKey.isShift == 1) ? " + Shift" : "") + ((regKey.isCtrl == 1) ? " + Ctrl" : "");
             
         }

@@ -28,6 +28,7 @@ namespace MACP
 
         KeyModel k_model;
 
+        List<bool> aceptMacro;
         bool activited = true;
         const int HOTKEY = 0x0312; // keyboard Event
 
@@ -37,13 +38,33 @@ namespace MACP
         {
             InitializeComponent();
             AMD.viewer = MacroViewer;
+
+            aceptMacro = new List<bool>();
         }
 
         private void MacroViewer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             var Btn = (sender as DataGridView).Rows[e.RowIndex];
-             DataGridViewCell d = Btn.Cells[0];
-          
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
+            var cell = (sender as DataGridView).Rows[row].Cells[col];
+
+            if(cell is DataGridViewButtonCell)
+            {
+
+                if (aceptMacro[row])
+                {
+
+                    aceptMacro[row] = false;
+                }
+                else
+                {
+                    aceptMacro[row] = true;
+                    
+                }
+
+
+            }
+        
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -99,6 +120,8 @@ namespace MACP
                         k_model.Input(macro);
                         break;
                 }
+
+                aceptMacro.Add(false);
             }
         }
 
@@ -142,6 +165,32 @@ namespace MACP
             k_model.macros.Add(cm);
             AMD.AddMacro(cm);
             
+        }
+
+        private void MacroViewer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
+            var cell = (sender as DataGridView).Rows[row].Cells[col];
+
+            if (cell is DataGridViewButtonCell)
+            {
+                DataGridViewButtonCell btnCell = cell as DataGridViewButtonCell;
+
+                
+                
+                if (aceptMacro[row])
+                {
+
+                    aceptMacro[row] = false;
+                }
+                else
+                {
+                    aceptMacro[row] = true;
+
+                }
+
+            }
         }
     }
 }

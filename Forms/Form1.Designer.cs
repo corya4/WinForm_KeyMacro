@@ -44,6 +44,7 @@
             this.MacroViewer.AllowUserToAddRows = false;
             this.MacroViewer.BackgroundColor = System.Drawing.SystemColors.Window;
             this.MacroViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MacroViewer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.MacroViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MacroViewer.ColumnHeadersVisible = false;
             this.MacroViewer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -52,13 +53,14 @@
             this.MacroViewer.Location = new System.Drawing.Point(0, 24);
             this.MacroViewer.Name = "MacroViewer";
             this.MacroViewer.ReadOnly = true;
+            this.MacroViewer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.MacroViewer.RowHeadersVisible = false;
             this.MacroViewer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.MacroViewer.RowTemplate.Height = 23;
             this.MacroViewer.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.MacroViewer.Size = new System.Drawing.Size(202, 255);
             this.MacroViewer.TabIndex = 0;
-            this.MacroViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MacroViewer_CellClick);
+            this.MacroViewer.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MacroViewer_CellMouseUp);
             // 
             // Macr
             // 

@@ -69,6 +69,7 @@
     <Compile Include="Model\AddKey.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ToggleButtonDataGridView.cs" />
     <Compile Include="Util\WinLib.cs" />
     <EmbeddedResource Include="Forms\MaCrt.resx">
       <DependentUpon>MaCrt.cs</DependentUpon>

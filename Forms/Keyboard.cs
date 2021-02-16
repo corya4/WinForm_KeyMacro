@@ -13,7 +13,6 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-        AddKey rKey;
         List<AddKey> lKey;
         bool mulSel;
 
@@ -21,13 +20,8 @@ namespace MACP.Forms
         {
             InitializeComponent();
 
-            rKey = obj as AddKey;
+            lKey = obj as List<AddKey>;
 
-            if(rKey == null)
-            {
-                lKey = obj as List<AddKey>;
-            }
-         
             this.mulSel = mulSel;
             this.Location = location;
         }
@@ -128,8 +122,7 @@ namespace MACP.Forms
                 key.isShift = Convert.ToBoolean(selKey.Cells[1].Value) == true ? 1 : 0;
                 key.isCtrl = Convert.ToBoolean(selKey.Cells[2].Value) == true ? 1 : 0;
 
-                if (keyData.MultiSelect) lKey.Add(key);
-                else rKey = key;
+                lKey.Add(key);
             }
 
             this.DialogResult = DialogResult.OK;
