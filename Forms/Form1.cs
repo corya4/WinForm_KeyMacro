@@ -27,6 +27,7 @@ namespace MACP
     {
 
         KeyModel k_model;
+        ToggleButtonCell btnCell;
 
         List<bool> aceptMacro;
         bool activited = true;
@@ -86,7 +87,7 @@ namespace MACP
 
         protected void SetViewer()
         {
-            foreach(CMacro cm in k_model.macros) MacroViewer.Rows.Add(cm.m_title);
+            foreach (CMacro cm in k_model.macros) AMD.AddMacro(cm);//MacroViewer.Rows.Add(cm.m_title);
         }
 
         protected void EntryMacro()
@@ -167,30 +168,9 @@ namespace MACP
             
         }
 
-        private void MacroViewer_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        private void OnMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int row = e.RowIndex;
-            int col = e.ColumnIndex;
-            var cell = (sender as DataGridView).Rows[row].Cells[col];
 
-            if (cell is DataGridViewButtonCell)
-            {
-                DataGridViewButtonCell btnCell = cell as DataGridViewButtonCell;
-
-                
-                
-                if (aceptMacro[row])
-                {
-
-                    aceptMacro[row] = false;
-                }
-                else
-                {
-                    aceptMacro[row] = true;
-
-                }
-
-            }
         }
     }
 }

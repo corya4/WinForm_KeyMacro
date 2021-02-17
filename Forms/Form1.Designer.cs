@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MacroViewer = new System.Windows.Forms.DataGridView();
             this.Macr = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menubar = new System.Windows.Forms.MenuStrip();
@@ -35,6 +38,7 @@
             this.추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.변경MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.삭제DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).BeginInit();
             this.menubar.SuspendLayout();
             this.SuspendLayout();
@@ -45,22 +49,46 @@
             this.MacroViewer.BackgroundColor = System.Drawing.SystemColors.Window;
             this.MacroViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MacroViewer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MacroViewer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.MacroViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MacroViewer.ColumnHeadersVisible = false;
             this.MacroViewer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Macr});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MacroViewer.DefaultCellStyle = dataGridViewCellStyle2;
             this.MacroViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MacroViewer.Location = new System.Drawing.Point(0, 24);
             this.MacroViewer.Name = "MacroViewer";
             this.MacroViewer.ReadOnly = true;
             this.MacroViewer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MacroViewer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.MacroViewer.RowHeadersVisible = false;
             this.MacroViewer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.MacroViewer.RowTemplate.Height = 23;
             this.MacroViewer.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.MacroViewer.Size = new System.Drawing.Size(202, 255);
             this.MacroViewer.TabIndex = 0;
-            this.MacroViewer.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MacroViewer_CellMouseUp);
+            this.MacroViewer.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnMouseUp);
             // 
             // Macr
             // 
@@ -110,6 +138,15 @@
             this.삭제DToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.삭제DToolStripMenuItem.Text = "삭제(&D)";
             // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.dataGridViewButtonColumn1.HeaderText = "";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -144,6 +181,7 @@
         private System.Windows.Forms.ToolStripMenuItem 추가AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 변경MToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 삭제DToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
     }
 }
 
