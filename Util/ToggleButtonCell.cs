@@ -12,29 +12,35 @@ namespace MACP.Util
     {
         public bool toggle;
 
+        protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, int rowIndex, DataGridViewElementStates elementState, object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle, DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
+        {
+            if (!toggle) base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, formattedValue, errorText, cellStyle,
+                advancedBorderStyle, paintParts);
+        }
+
 
         protected override void OnMouseDown(DataGridViewCellMouseEventArgs e)
         {
-            if (!toggle)
+
+            if (!toggle) base.OnMouseDown(e);
+            else ;
+
+            Console.WriteLine(e.RowIndex + "Down");
+
+        }
+
+       protected override void OnMouseUp(DataGridViewCellMouseEventArgs e)
+        {
+
+        
+           if (!toggle)
             {
+                Console.WriteLine(e.RowIndex + "Up");
                 toggle = true;
             }
             else
             {
                 base.OnMouseUp(e);
-                toggle = false;
-            }
-        }
-
-       protected override void OnMouseUp(DataGridViewCellMouseEventArgs e)
-        {
-            if (!toggle)
-            {
-                toggle = true;
-            }
-            else
-            {
-                base.OnMouseDown(e);
                 toggle = false;
             }
 
