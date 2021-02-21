@@ -12,30 +12,22 @@ namespace MACP.Util
     {
         public bool toggle;
 
+        /*
+         * toggle이 false시에만 이벤트활성화.
+         * toggle이 true시에는 눌린 grahpic에서 다시 원형태로 drow함.
+         */
         protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, int rowIndex, DataGridViewElementStates elementState, object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle, DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
         {
-            if (!toggle) base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, formattedValue, errorText, cellStyle,
+            if (toggle) return;
+
+            base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, formattedValue, errorText, cellStyle,
                 advancedBorderStyle, paintParts);
-        }
-
-
-        protected override void OnMouseDown(DataGridViewCellMouseEventArgs e)
-        {
-
-            if (!toggle) base.OnMouseDown(e);
-            else ;
-
-            Console.WriteLine(e.RowIndex + "Down");
-
         }
 
        protected override void OnMouseUp(DataGridViewCellMouseEventArgs e)
         {
-
-        
            if (!toggle)
             {
-                Console.WriteLine(e.RowIndex + "Up");
                 toggle = true;
             }
             else

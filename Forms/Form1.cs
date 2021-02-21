@@ -143,7 +143,6 @@ namespace MACP
 
         private bool ToggleMacro(Keys key)
         {
-
             if(key == Keys.F5)
             {
                 if (activited) activited = false;
@@ -166,11 +165,6 @@ namespace MACP
             k_model.macros.Add(cm);
             AMD.AddMacro(cm);
             
-        }
-
-        private void OnMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
         }
     }
 }

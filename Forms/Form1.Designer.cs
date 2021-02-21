@@ -88,7 +88,6 @@
             this.MacroViewer.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.MacroViewer.Size = new System.Drawing.Size(202, 255);
             this.MacroViewer.TabIndex = 0;
-            this.MacroViewer.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnMouseUp);
             // 
             // Macr
             // 
