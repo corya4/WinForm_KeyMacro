@@ -128,7 +128,7 @@ namespace MACP
 
         protected override void WndProc(ref Message m) //윈도우프로시저 콜백함수
         {
-            
+           
             if (m.Msg == HOTKEY)
             {
                 var key = WinLib.InputKey(m);
