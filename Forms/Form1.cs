@@ -16,18 +16,10 @@ using System.Windows.Forms;
 namespace MACP
 {
 
-    /*
-     * PreUpadte LoadVIew
-     * - GridView 컴포넌트 수정(버튼 토글 기능 추가)
-     * - 예약 메크로(토글On) 시 RegistryHotKey 등록
-     * - 프로그램 종료 시 Input된 메크로 파일로 저장.
-     */
-
     public partial class Form1 : Form
     {
 
         KeyModel k_model;
-        ToggleButtonCell btnCell;
 
         List<bool> aceptMacro;
         bool activited = true;
@@ -43,40 +35,19 @@ namespace MACP
             aceptMacro = new List<bool>();
         }
 
-        private void MacroViewer_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void OnEntry(object sender, DataGridViewCellEventArgs e)
         {
-            int row = e.RowIndex;
-            int col = e.ColumnIndex;
-            var cell = (sender as DataGridView).Rows[row].Cells[col];
-
-            if(cell is DataGridViewButtonCell)
-            {
-
-                if (aceptMacro[row])
-                {
-
-                    aceptMacro[row] = false;
-                }
-                else
-                {
-                    aceptMacro[row] = true;
-                    
-                }
-
-
-            }
-        
+            WinLib.RegisterHotKey();
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
             k_model = new KeyModel();
-
-            //WinLib.RegisterHotKey((int)this.Handle, 0, 0x0, (int)Keys.F5);
-
             EntryMacro();
             SetViewer();
         }
+
+
 
         private void OnClose(object sender, FormClosedEventArgs e)
         {
@@ -105,7 +76,6 @@ namespace MACP
                 }
                 switch(i % 5)
                 {
-                    
                     case 0:
                         macro = new CMacro(readLine[i]);
                         break;
@@ -121,7 +91,6 @@ namespace MACP
                         k_model.Input(macro);
                         break;
                 }
-
                 aceptMacro.Add(false);
             }
         }
@@ -166,5 +135,6 @@ namespace MACP
             AMD.AddMacro(cm);
             
         }
+
     }
 }

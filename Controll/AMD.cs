@@ -13,7 +13,6 @@ namespace MACP.Controll
     {
         static public DataGridView viewer;
 
-        //
         static int i = 0;
         static public void AddMacro(object data)
         {
