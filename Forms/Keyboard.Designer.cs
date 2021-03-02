@@ -32,6 +32,7 @@
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.KeyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OK = new System.Windows.Forms.Button();
             this.CANCEL = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.key,
             this.Shift,
             this.Ctrl,
+            this.Alt,
             this.KeyCode});
             this.keyData.Dock = System.Windows.Forms.DockStyle.Top;
             this.keyData.Location = new System.Drawing.Point(0, 0);
@@ -78,6 +80,13 @@
             this.Ctrl.FillWeight = 61.67514F;
             this.Ctrl.HeaderText = "Ctrl";
             this.Ctrl.Name = "Ctrl";
+            // 
+            // Alt
+            // 
+            this.Alt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Alt.FillWeight = 61.67514F;
+            this.Alt.HeaderText = "Alt";
+            this.Alt.Name = "Alt";
             // 
             // KeyCode
             // 
@@ -137,6 +146,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn key;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Shift;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ctrl;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Alt;
         private System.Windows.Forms.DataGridViewTextBoxColumn KeyCode;
     }
 }

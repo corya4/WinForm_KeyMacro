@@ -11,9 +11,15 @@ namespace MACP.Model
     {
         public
         Keys key { get; set; }
+
+        public
+        int modify  { get; set; }
+
         public
         int isShift { get; set; }
         public
         int isCtrl { get; set; }
+        public
+        int isAlt { get; set; }
     }
 }

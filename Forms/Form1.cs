@@ -37,7 +37,10 @@ namespace MACP
 
         private void OnEntry(object sender, DataGridViewCellEventArgs e)
         {
-            WinLib.RegisterHotKey();
+            int index = e.RowIndex;
+            CMacro c = k_model.macros[index];
+
+            WinLib.RegisterHotKey((int)this.Handle, e.RowIndex, c.regist.modify, (int)c.regist.key);
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -68,13 +71,13 @@ namespace MACP
 
             CMacro macro = null;
 
-            for(int i = 0; i < readLine.Length; i++)
+            for (int i = 0; i < readLine.Length; i++)
             {
                 if (readLine[i].Equals(""))
                 {
                     continue;
                 }
-                switch(i % 5)
+                switch (i % 5)
                 {
                     case 0:
                         macro = new CMacro(readLine[i]);
@@ -97,31 +100,34 @@ namespace MACP
 
         protected override void WndProc(ref Message m) //윈도우프로시저 콜백함수
         {
-           
             if (m.Msg == HOTKEY)
             {
-                var key = WinLib.InputKey(m);
-                if (!ToggleMacro(key.Key)) return;
+                KeyValuePair<Keys, int> keys = WinLib.InputKey(m);
 
-                k_model.OnMacro(key.Key, key.Value);
+                if (GetMacroKey(keys))
+                {
+
+                }
+
+                k_model.OnMacro(keys.Key, keys.Value);
 
             }
 
             base.WndProc(ref m);
         }
 
-        private bool ToggleMacro(Keys key)
+        private bool GetMacroKey(KeyValuePair<Keys, int> key)
         {
-            if(key == Keys.F5)
+            foreach (DataGridViewRow row in MacroViewer.Rows)
             {
-                if (activited) activited = false;
-                else activited = true;
-                return false;
+                if (((ToggleButtonCell)row.Cells[0]).toggle) continue;
+
+
+                
             }
 
-            if (!activited) return false;
 
-            return true;
+            return false;
         }
 
         private void AddMacro(object sender, EventArgs e)

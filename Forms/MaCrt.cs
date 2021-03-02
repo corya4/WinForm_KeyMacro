@@ -28,6 +28,7 @@ namespace MACP.Forms
 
         private void OnClick(object sender, EventArgs e)
         {
+            int modify;
             lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, false);
 
@@ -37,8 +38,8 @@ namespace MACP.Forms
             }
 
             regKey = lList[0];
-
-            ID_registBox.Text = regKey.key.ToString() + ((regKey.isShift == 1) ? " + Shift" : "") + ((regKey.isCtrl == 1) ? " + Ctrl" : "");
+            
+            ID_registBox.Text = regKey.key.ToString() + ((regKey.isShift == 1) ? " + Shift" : "") + ((regKey.isCtrl == 1) ? " + Ctrl" : "") + ((regKey.isAlt == 1) ? " + Alt" : "");
             
         }
 
@@ -47,16 +48,33 @@ namespace MACP.Forms
             lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, true);
 
+            bool isAlt;
+            bool isCtrl;
+            bool isShift;
+            int md;
+
             if (kb.ShowDialog() != DialogResult.OK)
             {
                 lList = null;
                 return;
             }
             int index = InputKey.Rows.Count + 1;
+
             foreach(AddKey key in lList)
             {
-                InputKey.Rows.Add(index++, key.key.ToString(),
-                           key.isShift == 1 ? true : false, key.isCtrl == 1 ? true : false);
+                isAlt = key.isAlt == 1 ? true : false;
+                isCtrl = key.isCtrl == 1 ? true : false;
+                isShift = key.isShift == 1 ? true : false;
+
+                InputKey.Rows.Add(index++, key.key.ToString(), isShift, isCtrl, isAlt);
+
+                md = 0;
+
+                if (isAlt) md += 1;
+                if (isCtrl) md += 2;
+                if (isShift) md += 4;
+
+                key.modify = md;
             }
         
 
@@ -85,6 +103,7 @@ namespace MACP.Forms
                 cm.keys.Add(key.key);
                 cm.shifts.Add(key.isShift);
                 cm.ctrls.Add(key.isCtrl);
+                cm.alt.Add(key.isAlt);
             }
 
             this.DialogResult = DialogResult.OK;

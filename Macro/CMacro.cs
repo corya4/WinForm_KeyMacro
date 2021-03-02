@@ -18,6 +18,7 @@ namespace MACP.Macro
         public List<Keys> keys;
         public List<int> shifts;
         public List<int> ctrls;
+        public List<int> alt;
 
         public CMacro(String title)
         {
@@ -26,6 +27,7 @@ namespace MACP.Macro
             keys = new List<Keys>();
             shifts = new List<int>();
             ctrls = new List<int>();
+            alt = new List<int>();
         }
 
         public void OnKey()

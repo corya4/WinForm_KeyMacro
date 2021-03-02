@@ -36,15 +36,16 @@
             this.ID_title = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.InputKey = new System.Windows.Forms.DataGridView();
-            this.view_index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.view_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.view_shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.view_Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ID_registBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.view_index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_shift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.view_Ctrl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.InputKey)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,8 @@
             this.view_index,
             this.view_key,
             this.view_shift,
-            this.view_Ctrl});
+            this.view_Ctrl,
+            this.Alt});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -111,44 +113,6 @@
             this.InputKey.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.InputKey.Size = new System.Drawing.Size(231, 126);
             this.InputKey.TabIndex = 4;
-            // 
-            // view_index
-            // 
-            this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_index.DefaultCellStyle = dataGridViewCellStyle1;
-            this.view_index.FillWeight = 64.4011F;
-            this.view_index.HeaderText = "No.";
-            this.view_index.Name = "view_index";
-            this.view_index.ReadOnly = true;
-            this.view_index.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // view_key
-            // 
-            this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.view_key.DefaultCellStyle = dataGridViewCellStyle2;
-            this.view_key.FillWeight = 203.0457F;
-            this.view_key.HeaderText = "입력키";
-            this.view_key.Name = "view_key";
-            this.view_key.ReadOnly = true;
-            this.view_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // view_shift
-            // 
-            this.view_shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.view_shift.FillWeight = 69.22985F;
-            this.view_shift.HeaderText = "Shift";
-            this.view_shift.Name = "view_shift";
-            this.view_shift.ReadOnly = true;
-            // 
-            // view_Ctrl
-            // 
-            this.view_Ctrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.view_Ctrl.FillWeight = 63.32338F;
-            this.view_Ctrl.HeaderText = "Ctrl";
-            this.view_Ctrl.Name = "view_Ctrl";
-            this.view_Ctrl.ReadOnly = true;
             // 
             // button1
             // 
@@ -196,6 +160,52 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.OnClick);
             // 
+            // view_index
+            // 
+            this.view_index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_index.DefaultCellStyle = dataGridViewCellStyle1;
+            this.view_index.FillWeight = 64.4011F;
+            this.view_index.HeaderText = "No.";
+            this.view_index.Name = "view_index";
+            this.view_index.ReadOnly = true;
+            this.view_index.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // view_key
+            // 
+            this.view_key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.view_key.DefaultCellStyle = dataGridViewCellStyle2;
+            this.view_key.FillWeight = 203.0457F;
+            this.view_key.HeaderText = "입력키";
+            this.view_key.Name = "view_key";
+            this.view_key.ReadOnly = true;
+            this.view_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // view_shift
+            // 
+            this.view_shift.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.view_shift.FillWeight = 69.22985F;
+            this.view_shift.HeaderText = "Shift";
+            this.view_shift.Name = "view_shift";
+            this.view_shift.ReadOnly = true;
+            // 
+            // view_Ctrl
+            // 
+            this.view_Ctrl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.view_Ctrl.FillWeight = 63.32338F;
+            this.view_Ctrl.HeaderText = "Ctrl";
+            this.view_Ctrl.Name = "view_Ctrl";
+            this.view_Ctrl.ReadOnly = true;
+            // 
+            // Alt
+            // 
+            this.Alt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Alt.FillWeight = 69.22985F;
+            this.Alt.HeaderText = "Alt";
+            this.Alt.Name = "Alt";
+            this.Alt.ReadOnly = true;
+            // 
             // MaCrt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -233,12 +243,13 @@
         private System.Windows.Forms.DataGridView InputKey;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ID_registBox;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn view_index;
         private System.Windows.Forms.DataGridViewTextBoxColumn view_key;
         private System.Windows.Forms.DataGridViewCheckBoxColumn view_shift;
         private System.Windows.Forms.DataGridViewCheckBoxColumn view_Ctrl;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ID_registBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Alt;
     }
 }
