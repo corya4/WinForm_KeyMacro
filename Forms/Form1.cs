@@ -103,31 +103,32 @@ namespace MACP
             if (m.Msg == HOTKEY)
             {
                 KeyValuePair<Keys, int> keys = WinLib.InputKey(m);
-
-                if (GetMacroKey(keys))
+                int index;
+                if ((index = GetMacroKey(keys)) != -1)
                 {
-
+                    k_model.OnMacro(index);
+                    return;
                 }
-
-                k_model.OnMacro(keys.Key, keys.Value);
-
             }
 
             base.WndProc(ref m);
         }
 
-        private bool GetMacroKey(KeyValuePair<Keys, int> key)
+        private int GetMacroKey(KeyValuePair<Keys, int> key)
         {
             foreach (DataGridViewRow row in MacroViewer.Rows)
             {
-                if (((ToggleButtonCell)row.Cells[0]).toggle) continue;
+                var cell = row.Cells[0] as ToggleButtonCell;
+                if (!cell.toggle) continue;
 
+                int index = row.Index;
+                CMacro c = k_model.macros[index];
 
-                
+                if (key.Key == c.regist.key && key.Value == c.regist.modify)
+                    return index;
             }
 
-
-            return false;
+            return -1;
         }
 
         private void AddMacro(object sender, EventArgs e)

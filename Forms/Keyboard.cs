@@ -118,7 +118,7 @@ namespace MACP.Forms
             {
                 key = new AddKey();
 
-                key.key = (Keys)selKey.Cells[3].Value;
+                key.key = (Keys)selKey.Cells[4].Value;
                 key.isShift = Convert.ToBoolean(selKey.Cells[1].Value) == true ? 1 : 0;
                 key.isCtrl = Convert.ToBoolean(selKey.Cells[2].Value) == true ? 1 : 0;
                 key.isAlt = Convert.ToBoolean(selKey.Cells[3].Value) == true ? 1 : 0;

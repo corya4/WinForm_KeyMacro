@@ -103,7 +103,7 @@ namespace MACP.Forms
                 cm.keys.Add(key.key);
                 cm.shifts.Add(key.isShift);
                 cm.ctrls.Add(key.isCtrl);
-                cm.alt.Add(key.isAlt);
+                cm.alts.Add(key.isAlt);
             }
 
             this.DialogResult = DialogResult.OK;

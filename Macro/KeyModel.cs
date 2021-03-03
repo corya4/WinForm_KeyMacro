@@ -30,20 +30,9 @@ namespace MACP.Macro
             macros.Add(m);
         }
 
-        public void OnMacro(Keys Onkey, int modified)
+        public void OnMacro(int index)
         {
-
-            foreach(CMacro c in macros)
-            {
-                
-                if(c.regist.key == Onkey && c.modified == modified)
-                {
-                    c.OnKey();
-                    break;
-                }
-
-            }
-            
+            macros[index].OnKey();
 
         }
 
