@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace MACP.Util
 {
@@ -39,9 +40,11 @@ namespace MACP.Util
         private const int SW_SHOWNORMAL = 1;
         private const int SW_SHOWMINIMIZED = 2;
         private const int SW_SHOWMAXIMIZED = 3;
-        public static bool EXEC = true;
 
         #endregion
+
+        public static Form form;
+        public static bool EXEC = true;
 
         public static KeyValuePair<Keys, int> InputKey(Message m)
         {

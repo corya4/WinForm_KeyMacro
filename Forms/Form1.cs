@@ -22,11 +22,11 @@ namespace MACP
         KeyModel k_model;
 
         List<bool> aceptMacro;
-        bool activited = true;
+        List<int> HotKeys;
         const int HOTKEY = 0x0312; // keyboard Event
 
         #region C# EVENT Method
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -40,12 +40,39 @@ namespace MACP
             int index = e.RowIndex;
             CMacro c = k_model.macros[index];
 
-            WinLib.RegisterHotKey((int)this.Handle, e.RowIndex, c.regist.modify, (int)c.regist.key);
+            if (((ToggleButtonCell)((DataGridViewRow)sender).Cells[0]).toggle) 
+            {
+                WinLib.RegisterHotKey((int)this.Handle, e.RowIndex, c.regist.modify, (int)c.regist.key);
+                HotKeys.Add(e.RowIndex);
+            }
+            else 
+            { 
+                WinLib.UnregisterHotKey((int)this.Handle, e.RowIndex);
+                HotKeys.Remove(e.RowIndex);
+            }
+        }
+
+        public void RegistReregister()
+        {
+            foreach(int index in HotKeys)
+            {
+                CMacro c = k_model.macros[index];
+                WinLib.RegisterHotKey((int)this.Handle, index, c.regist.modify, (int)c.regist.key);
+            }
+        }
+
+        public void RegistAllUnregister()
+        {
+            foreach(int index in HotKeys)
+            {
+                WinLib.UnregisterHotKey((int)this.Handle, index);
+            }
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
             k_model = new KeyModel();
+            HotKeys = new List<int>();
             EntryMacro();
             SetViewer();
         }
@@ -54,7 +81,7 @@ namespace MACP
 
         private void OnClose(object sender, FormClosedEventArgs e)
         {
-            WinLib.UnregisterHotKey((int)this.Handle, 0); // 키 등록 해제
+            // WinLib.UnregisterHotKey((int)this.Handle, 0); // 키 등록 해제
         }
 
         #endregion
@@ -102,13 +129,13 @@ namespace MACP
         {
             if (m.Msg == HOTKEY)
             {
-                KeyValuePair<Keys, int> keys = WinLib.InputKey(m);
-                int index;
-                if ((index = GetMacroKey(keys)) != -1)
-                {
-                    k_model.OnMacro(index);
-                    return;
-                }
+                 KeyValuePair<Keys, int> keys = WinLib.InputKey(m);
+                 int index;
+                 if ((index = GetMacroKey(keys)) != -1)
+                 {
+                     k_model.OnMacro(index);
+                     return;
+                 }
             }
 
             base.WndProc(ref m);

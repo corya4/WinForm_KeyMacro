@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controll\AMD.cs" />
+    <Compile Include="Controll\CMacro.cs" />
     <Compile Include="Forms\MaCrt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,9 +65,8 @@
     <Compile Include="Forms\Keyboard.Designer.cs">
       <DependentUpon>Keyboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Macro\CMacro.cs" />
-    <Compile Include="Macro\KeyModel.cs" />
     <Compile Include="Model\AddKey.cs" />
+    <Compile Include="Model\KeyModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ToggleButtonCell.cs" />
