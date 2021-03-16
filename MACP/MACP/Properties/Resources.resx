@@ -117,20 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Count" xml:space="preserve">
-    <value>COUNT</value>
-  </data>
   <data name="File" xml:space="preserve">
     <value>\\EntryMacro.ini</value>
     <comment>메크로 등록 파일</comment>
-  </data>
-  <data name="Mcr" xml:space="preserve">
-    <value>MCR</value>
-  </data>
-  <data name="Section" xml:space="preserve">
-    <value>MDATA</value>
-  </data>
-  <data name="Tag" xml:space="preserve">
-    <value>TITLE,CNT,RGK,INK</value>
   </data>
 </root>

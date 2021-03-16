@@ -49,6 +49,9 @@ namespace MACP
 
         #endregion
 
+        public static Form form { get; set; }
+        public bool EXEC = true;
+
         public static int GetPrivateProfileInteger(String section, String key, String filePath)
         {
             StringBuilder retVal = new StringBuilder(255);
@@ -64,10 +67,6 @@ namespace MACP
 
             return retVal.ToString();
         }
-
-
-        public Form form;
-        public bool EXEC = true;
 
         public static KeyValuePair<Keys, int> InputKey(Message m)
         {

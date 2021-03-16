@@ -37,6 +37,12 @@ namespace DataGridVIewTB
             this.OnCellMouseUp(new DataGridViewCellMouseEventArgs(row, col, 0, 0, null));
         }
 
+        /// <summary>
+        /// ToggleButtonCell 형변환이 되지 않는다면 -1, ToggleButton이 눌려있다면 1, 아니라면 0을 return시킨다.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="m"></param>
+        /// <returns></returns>
         public int Clicked(int n, int m) 
         {
             if (!(this.Rows[n].Cells[m] is ToggleButtonCell)) return -1;

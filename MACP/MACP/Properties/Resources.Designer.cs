@@ -61,47 +61,11 @@ namespace MACP.Properties {
         }
         
         /// <summary>
-        ///   COUNT과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string Count {
-            get {
-                return ResourceManager.GetString("Count", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   \\EntryMacro.ini과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   MCR과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string Mcr {
-            get {
-                return ResourceManager.GetString("Mcr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   MDATA과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string Section {
-            get {
-                return ResourceManager.GetString("Section", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   TITLE,CNT,RGK,INK과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string Tag {
-            get {
-                return ResourceManager.GetString("Tag", resourceCulture);
             }
         }
     }

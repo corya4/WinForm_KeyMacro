@@ -26,8 +26,6 @@ namespace MACP.Forms
 
         private void OnClick(object sender, EventArgs e)
         {
-
-
             int modify;
             lList = new List<AddKey>();
             Keyboard kb = new Keyboard(lList, this.Location, false);

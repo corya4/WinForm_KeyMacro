@@ -36,11 +36,8 @@
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MacroViewer = new DataGridVIewTB.DataGridVIewTB();
             this.macro = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridVIewTB1 = new DataGridVIewTB.DataGridVIewTB();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menubar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVIewTB1)).BeginInit();
             this.SuspendLayout();
             // 
             // menubar
@@ -68,7 +65,6 @@
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
             this.추가AToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
-            this.추가AToolStripMenuItem.Click += new System.EventHandler(this.AddMacro);
             // 
             // 변경MToolStripMenuItem
             // 
@@ -106,6 +102,7 @@
             this.MacroViewer.RowTemplate.Height = 23;
             this.MacroViewer.Size = new System.Drawing.Size(202, 255);
             this.MacroViewer.TabIndex = 2;
+            this.MacroViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEntry);
             // 
             // macro
             // 
@@ -114,34 +111,11 @@
             this.macro.Name = "macro";
             this.macro.ReadOnly = true;
             // 
-            // dataGridVIewTB1
-            // 
-            this.dataGridVIewTB1.AllowUserToAddRows = false;
-            this.dataGridVIewTB1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridVIewTB1.ColumnHeadersVisible = false;
-            this.dataGridVIewTB1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridVIewTB1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridVIewTB1.Location = new System.Drawing.Point(0, 24);
-            this.dataGridVIewTB1.Name = "dataGridVIewTB1";
-            this.dataGridVIewTB1.RowHeadersVisible = false;
-            this.dataGridVIewTB1.RowTemplate.Height = 23;
-            this.dataGridVIewTB1.Size = new System.Drawing.Size(202, 255);
-            this.dataGridVIewTB1.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // MacpMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(202, 279);
-            this.Controls.Add(this.dataGridVIewTB1);
             this.Controls.Add(this.MacroViewer);
             this.Controls.Add(this.menubar);
             this.MainMenuStrip = this.menubar;
@@ -153,11 +127,9 @@
             this.ShowIcon = false;
             this.Text = "KM";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClose);
-            this.Load += new System.EventHandler(this.OnLoad);
             this.menubar.ResumeLayout(false);
             this.menubar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVIewTB1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,8 +144,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private DataGridVIewTB.DataGridVIewTB MacroViewer;
         private System.Windows.Forms.DataGridViewButtonColumn macro;
-        private DataGridVIewTB.DataGridVIewTB dataGridVIewTB1;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }
 
