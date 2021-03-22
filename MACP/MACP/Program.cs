@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MACP.Util;
 
 namespace MACP
 {
@@ -19,9 +18,8 @@ namespace MACP
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Win32 method
-            WinLib WL = new WinLib();
-            WL.form = new MacpMain();
-            Application.Run(WL.form);
+            WinLib.form = new MacpMain();
+            Application.Run(WinLib.form);
         }
     }
 }

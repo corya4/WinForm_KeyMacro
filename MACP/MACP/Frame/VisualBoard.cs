@@ -1,26 +1,22 @@
-﻿using MACP.Model;
+﻿using MACP.Macro;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-        List<AddKey> lKey;
+        KeyEditController KECT;
+        CMacro lKey;
         bool mulSel;
 
         public Keyboard(object obj, Point location, bool mulSel)
         {
             InitializeComponent();
 
-            lKey = obj as List<AddKey>;
+            lKey = obj as CMacro;
 
             this.mulSel = mulSel;
             this.Location = location;
@@ -29,6 +25,8 @@ namespace MACP.Forms
         private void OnLoad(object sender, EventArgs e)
         {
             DataGridViewRowCollection rows = keyData.Rows;
+            KECT = KeyEditController.GetKeyEditController();
+
             rows.Add("1",false,false,false,Keys.NumPad1); 
             rows.Add("2",false,false,false,Keys.NumPad2);
             rows.Add("3",false,false,false,Keys.NumPad3); 
@@ -99,7 +97,7 @@ namespace MACP.Forms
             rows.Add("↑",false,false, false, Keys.Up);
             rows.Add("↓",false,false, false, Keys.Down); 
             rows.Add("←",false,false, false, Keys.Left);
-            rows.Add("→",false,false,false, false, Keys.Right);
+            rows.Add("→",false,false,false, Keys.Right);
 
         }
 
@@ -112,18 +110,11 @@ namespace MACP.Forms
         private void OnClick(object sender, EventArgs e)
         {
             if (keyData.SelectedRows == null) return;
-            AddKey key;
 
             foreach(DataGridViewRow selKey in keyData.SelectedRows)
             {
-                key = new AddKey();
-
-                key.key = (Keys)selKey.Cells[4].Value;
-                key.isShift = Convert.ToBoolean(selKey.Cells[1].Value) == true ? 1 : 0;
-                key.isCtrl = Convert.ToBoolean(selKey.Cells[2].Value) == true ? 1 : 0;
-                key.isAlt = Convert.ToBoolean(selKey.Cells[3].Value) == true ? 1 : 0;
-
-                lKey.Add(key);
+                lKey.regist.key = (Keys)selKey.Cells[4].Value;
+                lKey.regist.modify = KECT.GetModified(selKey.Cells[1].Value, selKey.Cells[2].Value, selKey.Cells[3].Value);
             }
 
             this.DialogResult = DialogResult.OK;

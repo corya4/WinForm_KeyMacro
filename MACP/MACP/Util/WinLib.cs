@@ -49,7 +49,7 @@ namespace MACP
 
         #endregion
 
-        public static Form form { get; set; }
+        public  static Form form { get; set; }
         public bool EXEC = true;
 
         public static int GetPrivateProfileInteger(String section, String key, String filePath)

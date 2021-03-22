@@ -1,8 +1,5 @@
-﻿using MACP.Forms;
-using MACP.Macro;
+﻿using MACP.Macro;
 using MACP.Model;
-using MACP.Util;
-using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
