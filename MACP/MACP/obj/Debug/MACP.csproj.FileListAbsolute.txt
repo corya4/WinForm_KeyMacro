@@ -10,3 +10,4 @@ C:\Users\corya\source\repos\MACP\MACP\obj\Debug\MACP.pdb
 C:\Users\corya\source\repos\MACP\MACP\obj\Debug\MACP.csprojAssemblyReference.cache
 C:\Users\corya\source\repos\MACP\MACP\obj\Debug\MACP.Forms.Keyboard.resources
 C:\Users\corya\source\repos\MACP\MACP\obj\Debug\MACP.Forms.MaCrt.resources
+C:\Users\corya\source\repos\MACP\MACP\obj\Debug\MACP.MacpMain.resources

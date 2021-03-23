@@ -25,5 +25,10 @@ namespace MACP.Macro
             return val;
         }
 
+        public string GetTitle(CMacro cm)
+        {
+            return cm.regist.key.ToString() + ((cm.regist.modify & 1) == 1 ? " + Shift" : "") + ((cm.regist.modify & 2) == 1 ? " + Cntl" : "") + ((cm.regist.modify & 4) == 1 ? " + Alt" : ""); 
+        }
+
     }
 }
