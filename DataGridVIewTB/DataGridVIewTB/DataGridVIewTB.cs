@@ -28,8 +28,13 @@ namespace DataGridVIewTB
             ToggleButtonCell cell = new ToggleButtonCell();
             cell.Value = strTxt;
 
-            if (this.Rows.Count < n) this.Rows.Add();
+            if (this.Rows.Count < n || this.Rows.Count == -1) AddRow();
             this.Rows[n].Cells[m] = cell;
+        }
+
+        public void AddRow()
+        {
+            this.Rows.Add();
         }
 
         public void OnToggle(int row, int col)
