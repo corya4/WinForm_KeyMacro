@@ -8,7 +8,7 @@ namespace MACP.Forms
 {
     public partial class Keyboard : Form
     {
-        KeyEditController KECT;
+        EventController Ectr;
         CMacro lKey;
         bool mulSel;
 
@@ -17,7 +17,7 @@ namespace MACP.Forms
             InitializeComponent();
 
             lKey = obj as CMacro;
-
+            Ectr = EventController.GetInstance();
             this.mulSel = mulSel;
             this.Location = location;
         }
@@ -25,7 +25,6 @@ namespace MACP.Forms
         private void OnLoad(object sender, EventArgs e)
         {
             DataGridViewRowCollection rows = keyData.Rows;
-            KECT = KeyEditController.GetKeyEditController();
 
             rows.Add("1",false,false,false,Keys.NumPad1); 
             rows.Add("2",false,false,false,Keys.NumPad2);
@@ -114,7 +113,7 @@ namespace MACP.Forms
             foreach(DataGridViewRow selKey in keyData.SelectedRows)
             {
                 lKey.regist.key = (Keys)selKey.Cells[4].Value;
-                lKey.regist.modify = KECT.GetModified(selKey.Cells[1].Value, selKey.Cells[2].Value, selKey.Cells[3].Value);
+                lKey.regist.modify = Ectr.GetModified(selKey.Cells[1].Value, selKey.Cells[2].Value, selKey.Cells[3].Value);
             }
 
             this.DialogResult = DialogResult.OK;

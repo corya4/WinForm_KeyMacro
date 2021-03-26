@@ -121,4 +121,10 @@
     <value>\\EntryMacro.ini</value>
     <comment>메크로 등록 파일</comment>
   </data>
+  <data name="Key" xml:space="preserve">
+    <value>TOTALCOUNT,KEY,COUNT,REGIST,TITLE,INPUT</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>COUNT,REGISTKEY,TITLE,INPUTKEY</value>
+  </data>
 </root>

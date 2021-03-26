@@ -16,14 +16,14 @@ namespace MACP.Forms
     public partial class MaCrt : Form
     {
         CMacro cm;
-        KeyEditController KECT;
+        EventController Ectr;
 
         public MaCrt(object cm, MacpMain form)
         {
             InitializeComponent();
             this.Location = new Point(form.Location.X + form.Width - 15, form.Location.Y);
-            KECT = KeyEditController.GetKeyEditController();
             this.cm = cm as CMacro;
+            Ectr = EventController.GetInstance();
         }
 
         private void OnClick(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace MACP.Forms
             cm.regist.key = tcm.keyList[0].key;
             cm.regist.modify = tcm.keyList[0].modify;
 
-            ID_registBox.Text = KECT.GetTitle(cm);
+            ID_registBox.Text = Ectr.GetTitle(cm);
         }
 
         private void OnClick2(object sender, EventArgs e)

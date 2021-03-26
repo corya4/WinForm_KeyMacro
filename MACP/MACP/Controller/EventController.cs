@@ -9,6 +9,7 @@ namespace MACP.Macro
     class EventController
     {
         private static EventController EventCnt;    // 싱글톤 객체
+        private static KeyParseUtil keyUtil;
         private DataGridView viewer;                // 참조할 컨트롤러
         private List<CMacro> mList;                 // 매크로 리스트
         private List<int> activeList;               // 활성화된 매크로 리스트
@@ -22,9 +23,58 @@ namespace MACP.Macro
             if(EventCnt == null)
             {
                 EventCnt = new EventController();
+                keyUtil = new KeyParseUtil();
             }
 
             return EventCnt;
+        }
+
+        /// <summary>
+        /// 읽어온 메크로를 인스턴스화.
+        /// </summary>
+        public void LoadMacro()
+        {
+            mList = new List<CMacro>();
+
+            int total;
+            int count1;
+            int count2;
+            string head;
+            string tail;
+            string file;
+            CMacro cm;
+
+            string[] section = Resources.Section.Split(',');    // COUNT,REGISTKEY,TITLE,INPUTKEY
+            string[] key = Resources.Key.Split(',');            // TOTALCOUNT,KEY,COUNT,REGIST,TITLE,INPUT
+            file = Application.StartupPath + Resources.File;
+
+            total = WinLib.GetPrivateProfileInteger(section[0], key[0], file);
+
+            for (int index1 = 1; index1 <= total; index1++)
+            {
+                cm = new CMacro( WinLib.GetPrivateProfileString(section[2], key[4] + index1, file) );
+                cm.regist = SetMacroKey(WinLib.GetPrivateProfileString(section[1], key[3] + index1, file)); 
+
+                count1 = WinLib.GetPrivateProfileInteger(section[0], key[1] + index1 + key[2], file);
+
+                for (int index2 = 1; index2 <= count1; index2++)
+                {
+                    cm.keyList.Add(SetMacroKey(WinLib.GetPrivateProfileString(section[3], key[1] + index1 + key[5] + index2, file)));
+                }
+
+                mList.Add(cm);
+            }
+        }
+
+        public void WriteMacro()
+        {
+            string file;
+            string[] section = Resources.Section.Split(',');    // COUNT,REGISTKEY,TITLE,INPUTKEY
+            string[] key = Resources.Key.Split(',');            // TOTALCOUNT,KEY,COUNT,REGIST,TITLE,INPUT
+
+            file = Application.StartupPath + Resources.File;
+            
+
         }
 
         /// <summary>
@@ -39,61 +89,13 @@ namespace MACP.Macro
         }
 
         /// <summary>
-        /// 파일에서 저장된 매크로를 로드함.
-        /// </summary>
-        public void EntryMacro()
-        {
-            CMacro macro = null;       // 메크로 데이터
-            String tmpTitle;
-            String tmpRegist;
-            String tmpInKey;
-            int total_m;
-            int key_m;
-
-            try
-            {
-                total_m = WinLib.GetPrivateProfileInteger("COUNT", "TOTALCOUNT", Application.StartupPath + Resources.File);
-           
-                for(int i = 1; i <= total_m; i++)
-                {
-                    key_m = WinLib.GetPrivateProfileInteger("COUNT", "KEY" + i + "COUNT", Resources.File);
-                    tmpTitle = WinLib.GetPrivateProfileString("TITLE", "TITLE" + i, Resources.File);
-                    tmpRegist = WinLib.GetPrivateProfileString("REGISTKEY", "REGIST" + i, Resources.File);
-
-                    macro = new CMacro(tmpTitle);
-                    macro.regist = SetMacroKey(tmpRegist);
-
-                    for(int j = 1; j <= key_m; j++)
-                    {
-                        tmpInKey = WinLib.GetPrivateProfileString("INPUTKEY", "KEY" + i + "INPUT" + j, Resources.File);
-                        macro.keyList.Add(SetMacroKey(tmpInKey));
-                    }
-
-                    mList.Add(macro);
-                }
-            }
-            catch
-            {
-                return;
-            }
-
-        }
-
-        /// <summary>
         /// 키와 보조키를 RegistKey 클래스에 대입 후 리턴시킴.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
         public RegistKey SetMacroKey(String str)
         {
-            String[] strArr;
-            RegistKey rk = new RegistKey();
-
-            strArr = str.Split(',');
-            rk.key = (Keys)Convert.ToChar(strArr[0]);
-            rk.modify = Convert.ToInt32(strArr[1]);
-
-            return rk;
+            return keyUtil.ParseKey(str);
         }
 
         /// <summary>
@@ -147,5 +149,16 @@ namespace MACP.Macro
                 WinLib.RegisterHotKey((int)(WinLib.form.Handle), index, regst.modify, (int)regst.key);
             }
         }
+
+        public string GetTitle(CMacro cm)
+        {
+            return keyUtil.GetTitle(cm);
+        }
+
+        public int GetModified(object shift, object Ctrl, object Alt)
+        {
+            return keyUtil.GetModified(shift, Ctrl, Alt);
+        }
+
     }
 }

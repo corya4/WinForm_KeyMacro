@@ -127,6 +127,7 @@
             this.ShowIcon = false;
             this.Text = "KM";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClose);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.menubar.ResumeLayout(false);
             this.menubar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).EndInit();

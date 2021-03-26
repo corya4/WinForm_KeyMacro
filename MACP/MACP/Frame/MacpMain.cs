@@ -1,5 +1,7 @@
 ﻿using MACP.Macro;
 using MACP.Model;
+using MACP.Properties;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -18,6 +20,17 @@ namespace MACP
             InitializeComponent();
             Ectr = EventController.GetInstance();
             Ectr.SetViewer(MacroViewer);
+        }
+
+        /// <summary>
+        /// 어플리케이션 실행시 메크로파일 로드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnLoad(object sender, System.EventArgs e)
+        {
+            Ectr.LoadMacro();
+
         }
 
         /// <summary>
@@ -51,7 +64,8 @@ namespace MACP
         /// <param name="e"></param>
         private void OnClose(object sender, FormClosedEventArgs e)
         {
-            // WinLib.UnregisterHotKey((int)this.Handle, 0); // 키 등록 해제
+            Ectr.RegistAllUnregister();
+            Ectr.WriteMacro();
         }
 
         /// <summary>
@@ -69,7 +83,5 @@ namespace MACP
 
             base.WndProc(ref m);
         }
-
-
     }
 }

@@ -68,5 +68,23 @@ namespace MACP.Properties {
                 return ResourceManager.GetString("File", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   TOTALCOUNT,KEY,COUNT,REGIST,TITLE,INPUT과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Key {
+            get {
+                return ResourceManager.GetString("Key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   COUNT,REGISTKEY,TITLE,INPUTKEY과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Section {
+            get {
+                return ResourceManager.GetString("Section", resourceCulture);
+            }
+        }
     }
 }
