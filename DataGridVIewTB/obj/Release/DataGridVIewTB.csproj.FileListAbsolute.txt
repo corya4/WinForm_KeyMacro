@@ -1,9 +1,0 @@
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\bin\Release\DataGridVIewTB.dll.config
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\bin\Release\DataGridVIewTB.dll
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\bin\Release\DataGridVIewTB.pdb
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.Properties.Resources.resources
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.DataGridVIewTB.resources
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.csproj.GenerateResource.cache
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.csproj.CoreCompileInputs.cache
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.dll
-C:\Users\corya\source\repos\DataGridViewTB\DataGridVIewTB\obj\Release\DataGridVIewTB.pdb

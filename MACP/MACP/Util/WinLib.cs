@@ -68,14 +68,5 @@ namespace MACP
             return retVal.ToString();
         }
 
-        public static KeyValuePair<Keys, int> InputKey(Message m)
-        {
-            Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);
-            int modified = (int)m.LParam & 0xFFFF;
-            KeyValuePair<Keys, int> keys = new KeyValuePair<Keys, int>(key, modified);
-
-            return keys;
-        }
-
     }
 }

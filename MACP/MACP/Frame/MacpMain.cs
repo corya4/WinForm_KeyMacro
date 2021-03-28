@@ -76,9 +76,8 @@ namespace MACP
         {
             if (m.Msg == HOTKEY)
             {
-                 KeyValuePair<Keys, int> keys = WinLib.InputKey(m);
-                 int index;
-              
+                RegistKey key = Ectr.ParseRegist(m);
+                Ectr.ExeMacro(key);
             }
 
             base.WndProc(ref m);

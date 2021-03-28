@@ -11,5 +11,8 @@ namespace MACP.Model
     {
         public Keys key;
         public int modify;
+
     }
+
+
 }

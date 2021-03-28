@@ -34,5 +34,17 @@ namespace MACP.Macro
             return cm.regist.key.ToString() + ((cm.regist.modify & 1) == 1 ? " + Shift" : "") + ((cm.regist.modify & 2) == 1 ? " + Cntl" : "") + ((cm.regist.modify & 4) == 1 ? " + Alt" : ""); 
         }
 
+        public RegistKey ParseRegist(Message m)
+        {
+            Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);
+            int modified = (int)m.LParam & 0xFFFF;
+
+            RegistKey regst = new RegistKey();
+            regst.key = key;
+            regst.modify = modified;
+
+            return regst;
+        }
+
     }
 }

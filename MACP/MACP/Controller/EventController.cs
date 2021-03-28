@@ -10,7 +10,7 @@ namespace MACP.Macro
     {
         private static EventController EventCnt;    // 싱글톤 객체
         private static KeyParseUtil keyUtil;
-        private DataGridView viewer;                // 참조할 컨트롤러
+        private DataGridVIewTB.DataGridVIewTB viewer;                // 참조할 컨트롤러
         private List<CMacro> mList;                 // 매크로 리스트
         private List<int> activeList;               // 활성화된 매크로 리스트
 
@@ -38,7 +38,6 @@ namespace MACP.Macro
 
             int total;
             int count1;
-            int count2;
             string head;
             string tail;
             string file;
@@ -47,6 +46,8 @@ namespace MACP.Macro
             string[] section = Resources.Section.Split(',');    // COUNT,REGISTKEY,TITLE,INPUTKEY
             string[] key = Resources.Key.Split(',');            // TOTALCOUNT,KEY,COUNT,REGIST,TITLE,INPUT
             file = Application.StartupPath + Resources.File;
+
+            Console.WriteLine(file);
 
             total = WinLib.GetPrivateProfileInteger(section[0], key[0], file);
 
@@ -62,8 +63,29 @@ namespace MACP.Macro
                     cm.keyList.Add(SetMacroKey(WinLib.GetPrivateProfileString(section[3], key[1] + index1 + key[5] + index2, file)));
                 }
 
-                mList.Add(cm);
+                AddMacro(cm);
             }
+        }
+        
+        /// <summary>
+        /// 메크로 추가하는 메소드.
+        /// </summary>
+        /// <param name="cm"></param>
+        public void AddMacro(CMacro cm)
+        {
+            AddViewer(cm.title);
+            AddMacroList(cm);
+        }
+
+        private  void AddViewer(string str)
+        {
+            viewer.Rows.Add();
+            viewer.SetToggleButton(str, mList.Count, 0);
+        }
+
+        private void AddMacroList(CMacro cm)
+        {
+            mList.Add(cm);
         }
 
         public void WriteMacro()
@@ -74,7 +96,6 @@ namespace MACP.Macro
 
             file = Application.StartupPath + Resources.File;
             
-
         }
 
         /// <summary>
@@ -83,7 +104,7 @@ namespace MACP.Macro
         /// <param name="viewer"></param>
         public void SetViewer(DataGridView viewer)
         {
-            EventCnt.viewer = viewer;
+            EventCnt.viewer = viewer as DataGridVIewTB.DataGridVIewTB;
             mList = new List<CMacro>();
             activeList = new List<int>();
         }
@@ -140,7 +161,7 @@ namespace MACP.Macro
         /// <summary>
         /// 리스트의 담겨있는 모든 매크로를 활성화 시킴.
         /// </summary>
-        public void RegistReregister()
+        public void RegistAllregister()
         {
             RegistKey regst;
             foreach (int index in activeList)
@@ -148,6 +169,16 @@ namespace MACP.Macro
                 regst = GetRegist(index);
                 WinLib.RegisterHotKey((int)(WinLib.form.Handle), index, regst.modify, (int)regst.key);
             }
+        }
+
+        /// <summary>
+        /// Win Message객체 파싱 메소드.
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public RegistKey ParseRegist(Message m)
+        {
+            return keyUtil.ParseRegist(m);
         }
 
         public string GetTitle(CMacro cm)
@@ -160,5 +191,50 @@ namespace MACP.Macro
             return keyUtil.GetModified(shift, Ctrl, Alt);
         }
 
+        public void ExeMacro(RegistKey regst)
+        {
+            Console.WriteLine("얻어온 레지스트키 : " + regst.key + "  " + regst.modify);
+            foreach (CMacro cm in mList)
+            {
+                if ((cm.regist.key == regst.key) && (cm.regist.modify == regst.modify))
+                {
+
+                    Console.WriteLine("같은 레지스트키 찾음.");
+                    StartMacro(cm);
+                    return;
+                }
+            }
+        }
+
+        public void StartMacro(CMacro cm)
+        {
+            RegistAllUnregister();
+
+            int[] mArr = new int[] { 16, 17, 18 };
+            foreach(RegistKey key in cm.keyList)
+            {
+                //키 다운
+                for(int i = 1; i <= 3; i++)
+                {
+                    if((key.modify & 1 << i) == 1)
+                    {
+                        WinLib.keybd_event((byte)mArr[i-1], 0, 0, 0);
+                    }
+                }
+                WinLib.keybd_event((byte)key.key, 0, 0x00, 0);
+
+                //키 업
+                WinLib.keybd_event((byte)key.key, 0, 0x02, 0);
+                for (int i = 1; i <= 3; i++)
+                {
+                    if ((key.modify & 1 << i) == 1)
+                    {
+                        WinLib.keybd_event((byte)mArr[i - 1], 0, 1, 0);
+                    }
+                }
+            }
+
+            RegistAllregister();
+        }
     }
 }
