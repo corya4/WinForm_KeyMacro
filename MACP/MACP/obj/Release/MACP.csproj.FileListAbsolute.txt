@@ -5,7 +5,6 @@ C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\bin\Release\DataGridVIewTB.pdb
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\bin\Release\DataGridVIewTB.dll.config
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.csprojAssemblyReference.cache
-C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.Forms.MaCrt.resources
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.MacpMain.resources
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.Forms.Keyboard.resources
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.Properties.Resources.resources
@@ -14,3 +13,4 @@ C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.csproj.CopyComplete
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.exe
 C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.pdb
+C:\Users\corya\Downloads\WinForm_CommandMacro-master\WinForm_CommandMacro-master\MACP\MACP\obj\Release\MACP.Forms.KeyOption.resources

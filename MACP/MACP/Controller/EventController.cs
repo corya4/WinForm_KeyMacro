@@ -181,6 +181,11 @@ namespace MACP.Macro
             return keyUtil.ParseRegist(m);
         }
 
+        public string GetRegistTitle(RegistKey regist)
+        {
+            return keyUtil.GetRegistTitle(regist);
+        }
+
         public string GetTitle(CMacro cm)
         {
             return keyUtil.GetTitle(cm);
@@ -232,6 +237,7 @@ namespace MACP.Macro
                         WinLib.keybd_event((byte)mArr[i - 1], 0, 1, 0);
                     }
                 }
+                
             }
 
             RegistAllregister();

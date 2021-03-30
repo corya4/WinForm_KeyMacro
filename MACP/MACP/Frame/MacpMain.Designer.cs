@@ -30,53 +30,49 @@
         {
             this.menubar = new System.Windows.Forms.MenuStrip();
             this.추가변경ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.변경MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.삭제DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.설정SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MacroViewer = new DataGridVIewTB.DataGridVIewTB();
             this.macro = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pnl_main = new System.Windows.Forms.Panel();
             this.menubar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).BeginInit();
+            this.pnl_main.SuspendLayout();
             this.SuspendLayout();
             // 
             // menubar
             // 
             this.menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.추가변경ToolStripMenuItem});
+            this.추가변경ToolStripMenuItem,
+            this.설정SToolStripMenuItem,
+            this.도움말ToolStripMenuItem});
             this.menubar.Location = new System.Drawing.Point(0, 0);
             this.menubar.Name = "menubar";
-            this.menubar.Size = new System.Drawing.Size(202, 24);
+            this.menubar.Size = new System.Drawing.Size(239, 24);
             this.menubar.TabIndex = 1;
             this.menubar.Text = "menubar";
             // 
             // 추가변경ToolStripMenuItem
             // 
-            this.추가변경ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.추가AToolStripMenuItem,
-            this.변경MToolStripMenuItem,
-            this.삭제DToolStripMenuItem});
             this.추가변경ToolStripMenuItem.Name = "추가변경ToolStripMenuItem";
-            this.추가변경ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.추가변경ToolStripMenuItem.Text = "파일(&F)";
+            this.추가변경ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.추가변경ToolStripMenuItem.Text = "추가(&A)";
+            this.추가변경ToolStripMenuItem.Click += new System.EventHandler(this.OnAddClicked);
             // 
-            // 추가AToolStripMenuItem
+            // 설정SToolStripMenuItem
             // 
-            this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.추가AToolStripMenuItem.Text = "추가(&A)";
+            this.설정SToolStripMenuItem.Name = "설정SToolStripMenuItem";
+            this.설정SToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.설정SToolStripMenuItem.Text = "설정(&S)";
+            this.설정SToolStripMenuItem.Click += new System.EventHandler(this.OnSettingClicked);
             // 
-            // 변경MToolStripMenuItem
+            // 도움말ToolStripMenuItem
             // 
-            this.변경MToolStripMenuItem.Name = "변경MToolStripMenuItem";
-            this.변경MToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.변경MToolStripMenuItem.Text = "변경(&M)";
-            // 
-            // 삭제DToolStripMenuItem
-            // 
-            this.삭제DToolStripMenuItem.Name = "삭제DToolStripMenuItem";
-            this.삭제DToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.삭제DToolStripMenuItem.Text = "삭제(&D)";
+            this.도움말ToolStripMenuItem.Name = "도움말ToolStripMenuItem";
+            this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.도움말ToolStripMenuItem.Text = "도움말(&M)";
+            this.도움말ToolStripMenuItem.Click += new System.EventHandler(this.OnHelpClicked);
             // 
             // dataGridViewButtonColumn1
             // 
@@ -90,17 +86,21 @@
             // MacroViewer
             // 
             this.MacroViewer.AllowUserToAddRows = false;
+            this.MacroViewer.AllowUserToResizeColumns = false;
+            this.MacroViewer.AllowUserToResizeRows = false;
             this.MacroViewer.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.MacroViewer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.MacroViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MacroViewer.ColumnHeadersVisible = false;
             this.MacroViewer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.macro});
             this.MacroViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MacroViewer.Location = new System.Drawing.Point(0, 24);
+            this.MacroViewer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MacroViewer.Name = "MacroViewer";
             this.MacroViewer.RowHeadersVisible = false;
             this.MacroViewer.RowTemplate.Height = 23;
-            this.MacroViewer.Size = new System.Drawing.Size(202, 255);
+            this.MacroViewer.Size = new System.Drawing.Size(239, 255);
             this.MacroViewer.TabIndex = 2;
             this.MacroViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEntry);
             // 
@@ -111,18 +111,27 @@
             this.macro.Name = "macro";
             this.macro.ReadOnly = true;
             // 
+            // pnl_main
+            // 
+            this.pnl_main.Controls.Add(this.MacroViewer);
+            this.pnl_main.Controls.Add(this.menubar);
+            this.pnl_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_main.Location = new System.Drawing.Point(0, 0);
+            this.pnl_main.Name = "pnl_main";
+            this.pnl_main.Size = new System.Drawing.Size(239, 279);
+            this.pnl_main.TabIndex = 3;
+            // 
             // MacpMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(202, 279);
-            this.Controls.Add(this.MacroViewer);
-            this.Controls.Add(this.menubar);
+            this.ClientSize = new System.Drawing.Size(239, 279);
+            this.Controls.Add(this.pnl_main);
             this.MainMenuStrip = this.menubar;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(218, 318);
+            this.MaximumSize = new System.Drawing.Size(255, 318);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(218, 318);
+            this.MinimumSize = new System.Drawing.Size(255, 318);
             this.Name = "MacpMain";
             this.ShowIcon = false;
             this.Text = "KM";
@@ -131,20 +140,21 @@
             this.menubar.ResumeLayout(false);
             this.menubar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MacroViewer)).EndInit();
+            this.pnl_main.ResumeLayout(false);
+            this.pnl_main.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.MenuStrip menubar;
         private System.Windows.Forms.ToolStripMenuItem 추가변경ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 추가AToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 변경MToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 삭제DToolStripMenuItem;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private DataGridVIewTB.DataGridVIewTB MacroViewer;
         private System.Windows.Forms.DataGridViewButtonColumn macro;
+        private System.Windows.Forms.ToolStripMenuItem 설정SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 도움말ToolStripMenuItem;
+        private System.Windows.Forms.Panel pnl_main;
     }
 }
 

@@ -36,9 +36,7 @@
             this.KeyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OK = new System.Windows.Forms.Button();
             this.CANCEL = new System.Windows.Forms.Button();
-            this.pnl_board = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).BeginInit();
-            this.pnl_board.SuspendLayout();
             this.SuspendLayout();
             // 
             // keyData
@@ -57,7 +55,7 @@
             this.keyData.RowHeadersVisible = false;
             this.keyData.RowTemplate.Height = 23;
             this.keyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.keyData.Size = new System.Drawing.Size(245, 244);
+            this.keyData.Size = new System.Drawing.Size(239, 244);
             this.keyData.TabIndex = 0;
             // 
             // key
@@ -100,7 +98,7 @@
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(27, 254);
+            this.OK.Location = new System.Drawing.Point(24, 251);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(74, 22);
             this.OK.TabIndex = 1;
@@ -110,7 +108,7 @@
             // 
             // CANCEL
             // 
-            this.CANCEL.Location = new System.Drawing.Point(143, 254);
+            this.CANCEL.Location = new System.Drawing.Point(140, 251);
             this.CANCEL.Name = "CANCEL";
             this.CANCEL.Size = new System.Drawing.Size(74, 22);
             this.CANCEL.TabIndex = 2;
@@ -118,25 +116,17 @@
             this.CANCEL.UseVisualStyleBackColor = true;
             this.CANCEL.Click += new System.EventHandler(this.OnCancel);
             // 
-            // pnl_board
-            // 
-            this.pnl_board.Controls.Add(this.keyData);
-            this.pnl_board.Controls.Add(this.CANCEL);
-            this.pnl_board.Controls.Add(this.OK);
-            this.pnl_board.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_board.Location = new System.Drawing.Point(0, 0);
-            this.pnl_board.Name = "pnl_board";
-            this.pnl_board.Size = new System.Drawing.Size(245, 289);
-            this.pnl_board.TabIndex = 3;
-            // 
             // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 289);
+            this.ClientSize = new System.Drawing.Size(239, 279);
             this.ControlBox = false;
-            this.Controls.Add(this.pnl_board);
+            this.Controls.Add(this.CANCEL);
+            this.Controls.Add(this.OK);
+            this.Controls.Add(this.keyData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(255, 318);
             this.MinimumSize = new System.Drawing.Size(255, 318);
             this.Name = "Keyboard";
             this.ShowIcon = false;
@@ -144,7 +134,6 @@
             this.Text = "Keyboard";
             this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.keyData)).EndInit();
-            this.pnl_board.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -159,6 +148,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ctrl;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Alt;
         private System.Windows.Forms.DataGridViewTextBoxColumn KeyCode;
-        private System.Windows.Forms.Panel pnl_board;
     }
 }

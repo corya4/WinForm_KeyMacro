@@ -68,5 +68,11 @@ namespace MACP
             return retVal.ToString();
         }
 
+        public static void SetDockPanel(Panel p)
+        {
+            form.Controls.Add(p);
+            p.Dock = DockStyle.Fill;
+        }
+
     }
 }

@@ -1,5 +1,7 @@
-﻿using MACP.Model;
+﻿
+using MACP.Model;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace MACP.Macro
@@ -29,8 +31,13 @@ namespace MACP.Macro
             return val;
         }
 
-        public string GetTitle(CMacro cm)
+        public string GetRegistTitle(RegistKey key)
         {
+            return key.key.ToString() + ((key.modify & 1) == 1 ? " + Shift" : "") + ((key.modify & 2) == 1 ? " + Cntl" : "") + ((key.modify & 4) == 1 ? " + Alt" : "");
+        }
+
+        public string GetTitle(CMacro cm)
+        { 
             return cm.regist.key.ToString() + ((cm.regist.modify & 1) == 1 ? " + Shift" : "") + ((cm.regist.modify & 2) == 1 ? " + Cntl" : "") + ((cm.regist.modify & 4) == 1 ? " + Alt" : ""); 
         }
 

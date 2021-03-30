@@ -1,4 +1,5 @@
-﻿using MACP.Macro;
+﻿using MACP.Forms;
+using MACP.Macro;
 using MACP.Model;
 using MACP.Properties;
 using System;
@@ -81,6 +82,40 @@ namespace MACP
             }
 
             base.WndProc(ref m);
+        }
+
+        public void ToggleVisible()
+        {
+            if (this.pnl_main.Visible) 
+            {
+                this.pnl_main.Visible = false;
+            }
+            else
+            {
+                this.pnl_main.Visible = true;
+                ReFresh();
+            }
+            
+        }
+
+        private void ReFresh()
+        {
+            MacroViewer.Refresh();
+        }
+
+        private void OnAddClicked(object sender, EventArgs e)
+        {
+            new KeyOption(new CMacro(""), this);
+        }
+
+        private void OnSettingClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnHelpClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

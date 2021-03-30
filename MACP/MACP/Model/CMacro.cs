@@ -27,6 +27,7 @@ namespace MACP.Macro
         public CMacro(String title)
         {
             this.title = title;
+            regist = new RegistKey();
             keyList = new List<RegistKey>();
         }
 
